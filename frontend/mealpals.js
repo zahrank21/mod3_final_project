@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", event => {
     json.forEach(mealpal => {
     let mealpalItem = document.createElement("div")
     let mealpalLink = document.createElement("p")
-    mealpalLink.innerText = mealpal["referral_link"]
+    mealpalLink.innerText = `Link: ${mealpal["referral_link"]}`
     let mealpalUses = document.createElement("p")
-    mealpalUses.innerText = mealpal["count"]
+    mealpalUses.innerText = `Used: ${mealpal["count"]} Time(s)`
     mealpalItem.append(mealpalLink, mealpalUses)
     mealPalList.append(mealpalItem)
     })
