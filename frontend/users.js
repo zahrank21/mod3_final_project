@@ -2,12 +2,12 @@
 document.addEventListener("DOMContentLoaded", event => {
 
 // let users = document.getElementById("users");
-
-
-(function getUsers(){
-  return fetch(BASE_URL + "users")
-  .then(res => res.json())
-})()
+// 
+//
+// (function getUsers(){
+//   return fetch(BASE_URL + "users")
+//   .then(res => res.json())
+// })()
 
 
 
