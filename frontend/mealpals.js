@@ -20,6 +20,19 @@ document.addEventListener("DOMContentLoaded", event => {
     })
   }
 
+  let addMealpalForm = document.getElementById("add-mealpal-link")
+
+  addMealpalForm.addEventListener('submit', e => {
+    e.preventDefault();
+    let mealpalItem = document.createElement("div")
+    let mealpalLinkInput = document.createElement("p")
+    mealpalLinkInput.innerText = document.getElementById("mealpal-link").value
+    let mealpalUses = document.createElement("p")
+    mealpalUses.innerText = 0
+    mealpalItem.append(mealpalLinkInput, mealpalUses)
+    mealPalList.append(mealpalItem)
+    e.target.reset();
+  })
 
 
 
