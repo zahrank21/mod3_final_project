@@ -5,9 +5,7 @@ const BASE_URL = "http://localhost:3000/";
 
 document.addEventListener("DOMContentLoaded", event => {
 
-  const deleteButton = document.createElement('button')
-  const deleteButtonLabel = document.createTextNode('delete')
-  deleteButton.appendChild(deleteButtonLabel)
+
 
 let users = document.getElementById("users");
 

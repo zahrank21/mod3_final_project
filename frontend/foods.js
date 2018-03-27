@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", event => {
         e.preventDefault()
         e.target.parentNode.remove()
 
+
       })
       //
 
@@ -65,6 +66,16 @@ document.addEventListener("DOMContentLoaded", event => {
 
     foodFormItem.append(typeOfFoodInput, foodCountInput, deleteButton)
     communityFridge.appendChild(foodFormItem)
+
+    let body = {'type_of_food': `${document.getElementById("food-name").value}`, 'count':`${document.getElementById("food-count").value}`, 'community_fridge_id': 1}
+    fetch(BASE_URL + 'foods',{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body)
+    })
+
     e.target.reset()
   })
 

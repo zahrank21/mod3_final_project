@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", event => {
     mealpalUses.innerText = `Used: ${mealpal["count"]} Time(s)`
 
     let expirationDate = document.createElement("p")
-    expirationDate.innerText = "True"
+    expirationDate.innerText = `Promotion Expires: ${mealpal["expiration_date"]}`
 
     //copy and paste this to any place you want delete button
     const deleteButton = document.createElement('button')
@@ -68,6 +68,20 @@ document.addEventListener("DOMContentLoaded", event => {
 
     mealpalItem.append(mealpalLinkInput, mealpalUses, expirationDate, deleteButton)
     mealPalList.append(mealpalItem)
+
+
+    // post fetch
+    let body = {'referral_link': `${document.getElementById("mealpal-link").value}`, 'count': 0, 'expiration_date': `${document.getElementById("expiration-date").value}`}
+
+    fetch(BASE_URL + 'mealpals',{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body)
+    })
+    //
+
 
     e.target.reset();
   })
