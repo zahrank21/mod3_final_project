@@ -1,3 +1,11 @@
 .column {
-  max-width: 450px;
+  max-width: 500px;
+}
+
+#bg-color {
+  background-color: yellow;
+}
+
+#login_splash_page {
+  padding-top: 200px;
 }
