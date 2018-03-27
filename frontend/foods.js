@@ -15,19 +15,27 @@ document.addEventListener("DOMContentLoaded", event => {
       json.forEach(food => {
       let foodItem = document.createElement("div");
 
-      let foodLabel = document.createElement('h5');
-      foodLabel.innerText = "Item"
-
       let typeOfFood = document.createElement("p");
-      typeOfFood.innerText = food["type_of_food"];
+      typeOfFood.innerText = `Item: ${food["type_of_food"]}`;
 
       let foodCountLabel = document.createElement("h5")
       foodCountLabel.innerText = "Quantity"
 
       let foodCount = document.createElement("p");
-      foodCount.innerText = food["count"]
+      foodCount.innerText = `Quantity: ${food["count"]}`
 
-      foodItem.append(foodLabel, typeOfFood, foodCountLabel, foodCount)
+      //copy and paste this to any place you want delete button
+      const deleteButton = document.createElement('button')
+      const deleteButtonLabel = document.createTextNode('delete')
+      deleteButton.appendChild(deleteButtonLabel)
+      deleteButton.addEventListener('click', e => {
+        e.preventDefault()
+        e.target.parentNode.remove()
+
+      })
+      //
+
+      foodItem.append( typeOfFood, foodCount, deleteButton)
       communityFridge.appendChild(foodItem);
     })
   }
@@ -38,19 +46,24 @@ document.addEventListener("DOMContentLoaded", event => {
     e.preventDefault()
     let foodFormItem = document.createElement("div");
 
-    let foodLabel = document.createElement('h5');
-    foodLabel.innerText = "Item"
-
     let typeOfFoodInput = document.createElement("p")
-    typeOfFoodInput.innerText = document.getElementById("food-name").value
-
-    let foodCountLabel = document.createElement("h5")
-    foodCountLabel.innerText = "Quantity"
+    typeOfFoodInput.innerText = `Item: ${document.getElementById("food-name").value}`
 
     let foodCountInput = document.createElement("p")
-    foodCountInput.innerText = document.getElementById("food-count").value
+    foodCountInput.innerText = `Quantity: ${document.getElementById("food-count").value}`
 
-    foodFormItem.append(foodLabel, typeOfFoodInput, foodCountLabel, foodCountInput)
+    //copy and paste this to any place you want delete button
+    const deleteButton = document.createElement('button')
+    const deleteButtonLabel = document.createTextNode('delete')
+    deleteButton.appendChild(deleteButtonLabel)
+    deleteButton.addEventListener('click', e => {
+      e.preventDefault()
+      e.target.parentNode.remove()
+
+    })
+    //
+
+    foodFormItem.append(typeOfFoodInput, foodCountInput, deleteButton)
     communityFridge.appendChild(foodFormItem)
     e.target.reset()
   })
