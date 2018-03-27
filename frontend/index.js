@@ -19,7 +19,15 @@ let users = document.getElementById("users");
   let splashPage = document.getElementById("login_splash_page");
   let loginButton = document.getElementById("login_button");
   let signupButton = document.getElementById("signup_button");
+
+  // $('#login_splash_page')
+  // // default everything
+  // .transition()
+  // ;
+
+
   clearHTML = () => splashPage.innerHTML = "";
+
   loginButton.addEventListener("click", clearHTML)
   signupButton.addEventListener("click", clearHTML)
 
