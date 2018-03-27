@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <title></title>
     <script src="index.js"></script>
+    <script src="users.js"></script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
-
   </head>
   <body>
     <div id="login_splash_page" class="ui middle aligned center aligned grid">
@@ -40,9 +41,57 @@
     </div>
 
     <div id="users">
+
+      <h2>Log In or Sign Up</h2>
+      <div id="login">
+        <h4>Log in</h4>
+        <form id="login-form" action="/users" method="POST">
+          <label>Username</label>
+          <input type="text" name="username" id="username"><br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+      <br>
+
+      <div id="signup">
+        <h4>Sign Up</h4>
+        <form id="signup-form" action="/users" method="POST">
+          <label>Name</label>
+          <input type="text" name="name" id="signup-name"><br>
+          <label>Username</label>
+          <input type="text" name="username" id="signup-username"><br>
+          <label>Cohort</label>
+          <input type="text" name="cohort" id="signup-cohort"><br>
+          <label>Alumni</label>
+          <input type="checkbox" name="alumni" id="signup-alumni"><br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
     </div>
 
     <div id="food">
+
+      <h2>Food</h2>
+
+      <div id = "fridge-container">
+        <h4>Community Fridge</h4>
+        <form id="add-food" action="/foods" method="POST">
+          <label>Add Food to Community Fridge:</label>
+          <input type="text" name="name" id="food-name">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+      <div id = "mealpal-container">
+        <h4>MealPal Referrals</h4>
+        <form id="add-mealpal-link" action="/mealpals" method="POST">
+          <label>Add Your MealPal Link</label>
+          <input type="text" name="name" id="mealpal-link">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
     </div>
 
     <div id="career">
