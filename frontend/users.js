@@ -20,5 +20,12 @@ document.addEventListener("DOMContentLoaded", event => {
 //     users.append(p);
 //   })
 // }
+let deleteButton = document.createElement('button')
+let deleteButtonLabel = document.createTextNode('Delete')
+deleteButton.appendChild(deleteButtonLabel)
+deleteButton.addEventListener('click', e => {
+  e.preventDefault();
+  document.removeChild();
+})
 
 })

@@ -14,11 +14,20 @@ document.addEventListener("DOMContentLoaded", event => {
   renderFoods = (json) => {
       json.forEach(food => {
       let foodItem = document.createElement("div");
+
+      let foodLabel = document.createElement('h5');
+      foodLabel.innerText = "Item"
+
       let typeOfFood = document.createElement("p");
       typeOfFood.innerText = food["type_of_food"];
+
+      let foodCountLabel = document.createElement("h5")
+      foodCountLabel.innerText = "Quantity"
+
       let foodCount = document.createElement("p");
       foodCount.innerText = food["count"]
-      foodItem.append(typeOfFood, foodCount)
+
+      foodItem.append(foodLabel, typeOfFood, foodCountLabel, foodCount)
       communityFridge.appendChild(foodItem);
     })
   }
@@ -28,11 +37,20 @@ document.addEventListener("DOMContentLoaded", event => {
   addFoodForm.addEventListener('submit', e => {
     e.preventDefault()
     let foodFormItem = document.createElement("div");
+
+    let foodLabel = document.createElement('h5');
+    foodLabel.innerText = "Item"
+
     let typeOfFoodInput = document.createElement("p")
     typeOfFoodInput.innerText = document.getElementById("food-name").value
+
+    let foodCountLabel = document.createElement("h5")
+    foodCountLabel.innerText = "Quantity"
+
     let foodCountInput = document.createElement("p")
     foodCountInput.innerText = document.getElementById("food-count").value
-    foodFormItem.append(typeOfFoodInput, foodCountInput)
+
+    foodFormItem.append(foodLabel, typeOfFoodInput, foodCountLabel, foodCountInput)
     communityFridge.appendChild(foodFormItem)
     e.target.reset()
   })
