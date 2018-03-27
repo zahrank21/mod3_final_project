@@ -2,10 +2,14 @@
   max-width: 500px;
 }
 
-#bg-color {
-  background-color: grey;
+#main_body {
+  background-color: yellow;
 }
 
 #login_splash_page {
   padding-top: 200px;
+}
+
+#food {
+  height: 100%;
 }
