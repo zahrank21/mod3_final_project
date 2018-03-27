@@ -29,8 +29,10 @@ document.addEventListener("DOMContentLoaded", event => {
     mealpalLinkInput.innerText = document.getElementById("mealpal-link").value
     let mealpalUses = document.createElement("p")
     mealpalUses.innerText = 0
+
     mealpalItem.append(mealpalLinkInput, mealpalUses)
-    mealPalList.append(mealpalItem)
+    mealPalList.append(mealpalItem, deleteButton)
+
     e.target.reset();
   })
 
