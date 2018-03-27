@@ -5,6 +5,8 @@
     <title></title>
     <script src="index.js"></script>
     <script src="users.js"></script>
+    <script src="foods.js"></script>
+    <script src="mealpals.js"></script>
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
@@ -74,11 +76,12 @@
 
       <h2>Food</h2>
 
-      <div id = "fridge-container">
+      <div id ="fridge-container">
         <h4>Community Fridge</h4>
         <form id="add-food" action="/foods" method="POST">
           <label>Add Food to Community Fridge:</label>
           <input type="text" name="name" id="food-name">
+          <input type="integer" name="amount" id="food-count">
           <input type="submit" value="Submit">
         </form>
       </div>
