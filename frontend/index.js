@@ -8,27 +8,14 @@ let users = document.getElementById("users");
   $('.menu .item')
   .tab()
   ;
-// (function getUsers(){
-//   return fetch(BASE_URL + "users")
-//   .then(res => res.json())
-//   .then(json => displayUsers(json))
-// })()
-//
-// // function displayUsers(json) {
-// //   json.forEach(user) {
-// //     let p = document.createElement("p");
-// //     p.innerText = user.name;
-// //     users.innerHTML += p;
-// //   }
-// // }
-//
-// displayUsers = (json) => {
-//     json.forEach(user => {
-//     let p = document.createElement("p");
-//     p.innerText = user["name"];
-//     users.appendChild(p);
-//   })
-// }
 
+  $('.ui.checkbox').checkbox('attach events', '.check.button', 'check');
+
+  let splashPage = document.getElementById("login_splash_page");
+  let loginButton = document.getElementById("login_button");
+  let signupButton = document.getElementById("signup_button");
+  clearHTML = () => splashPage.innerHTML = "";
+  loginButton.addEventListener("click", clearHTML)
+  signupButton.addEventListener("click", clearHTML)
 
 })
