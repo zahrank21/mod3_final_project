@@ -2,12 +2,20 @@
 document.addEventListener("DOMContentLoaded", event => {
 
 // let users = document.getElementById("users");
-// 
-//
-// (function getUsers(){
-//   return fetch(BASE_URL + "users")
-//   .then(res => res.json())
-// })()
+
+
+  (function getUsers(){
+    return fetch(BASE_URL + "users")
+    .then(res => res.json())
+  })()
+
+  // allUserData = (json) => {
+  //   json.forEach(user => {
+  //
+  //   })
+  // }
+
+
 
 
 
@@ -20,5 +28,12 @@ document.addEventListener("DOMContentLoaded", event => {
 //     users.append(p);
 //   })
 // }
+// let deleteButton = document.createElement('button')
+// let deleteButtonLabel = document.createTextNode('Delete')
+// deleteButton.appendChild(deleteButtonLabel)
+// deleteButton.addEventListener('click', e => {
+//   e.preventDefault();
+//   document.removeChild();
+// })
 
 })
