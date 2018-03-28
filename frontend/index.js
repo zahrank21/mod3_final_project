@@ -43,8 +43,8 @@ let users = document.getElementById("users");
         <h4>Community Fridge</h4>
         <form id="add-food" action="/foods" method="POST">
           <label>Add Food to Community Fridge:</label>
-          <input type="text" name="name" id="food-name">
-          <input type="integer" name="amount" id="food-count">
+          <input type="text" name="name" id="food-name" placeholder="Item">
+          <input type="integer" name="amount" id="food-count" placeholder="Amount">
           <input type="submit" value="Submit">
         </form>
       </div>
@@ -53,14 +53,33 @@ let users = document.getElementById("users");
         <h4>MealPal Referrals</h4>
         <form id="add-mealpal-link" action="/mealpals" method="POST">
           <label>Add Your MealPal Link</label>
-          <input type="text" name="name" id="mealpal-link">
+          <input type="text" name="name" id="mealpal-link" placeholder="Link">
+          <label>Expiration Date</label>
+          <input type="date" name="date_field" id="expiration-date" placeholder="Date">
           <input type="submit" value="Submit">
         </form>
+      </div>
+
+      <div id="restaurant-container">
+        <h4>Restaurant Recommendations</h4>
+
       </div>
 
     </div>
 
     <div id="career">
+      <h2>Career</h2>
+
+      <div id="job-openings">
+        <label>Job Openings</label>
+
+      </div>
+
+      <div id="alumni-whiteboard">
+        <label>Alumni Whiteboard</label>
+
+      </div>
+
     </div>
 
     <div id="coding">
