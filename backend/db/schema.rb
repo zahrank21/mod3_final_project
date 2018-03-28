@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326201051) do
+ActiveRecord::Schema.define(version: 20180328131903) do
 
   create_table "community_fridges", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20180326201051) do
     t.boolean "in_fridge", default: true
     t.integer "count"
     t.integer "community_fridge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "company"
+    t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

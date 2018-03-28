@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
 
     // post fetch
-    let body = {'referral_link': `${document.getElementById("mealpal-link").value}`, 'count': 0, 'expiration_date': `${document.getElementById("expiration-date").value}`}
+    let body = {'user_id': 1, 'referral_link': `${document.getElementById("mealpal-link").value}`, 'count': 0, 'expiration_date': `${document.getElementById("expiration-date").value}`}
 
     fetch(BASE_URL + 'mealpals',{
     method: "POST",

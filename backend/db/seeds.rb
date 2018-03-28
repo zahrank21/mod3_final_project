@@ -11,3 +11,4 @@
 # flatiron = CommunityFridge.create(name: 'flatiron')
 # pizza = Food.create(type_of_food: 'pizza', in_fridge: true, count: 1, community_fridge_id: flatiron.id)
 # zahran_mealpal = Mealpal.create(user_id: zahran.id, referral_link: 'mealpal.com/enamulkabir', count: 1)
+job1 = Job.create(title: 'Fullstack Dev', description: 'Must know JS', company: "Flatiron", link: "flatiron.com")
