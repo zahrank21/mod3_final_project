@@ -17,7 +17,9 @@ class Job {
     newJobTitle.innerText = "Title: " + this.title;
     newJobDescription.innerText = "Description: " + this.description;
     newJobCompany.innerText = "Company: " + this.company;
-    newJobLink.innerText = "Link to Job: " + this.link;
+    // newJobLink.innerText = "Link to Job: " + this.link;
+    newJobLink.innerHTML = `Link to Job: <a href="http://${this.link}"> ${this.link}</a>`;
+
 
     newJob.append(newJobTitle, newJobDescription, newJobCompany, newJobLink);
     divJob.appendChild(newJob);
