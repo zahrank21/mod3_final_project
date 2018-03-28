@@ -7,6 +7,19 @@ class Job {
   }
 
   displayJobs() {
-    let newJ
+    let newJob = document.createElement("div");
+    let newJobTitle = document.createElement("p");
+    let newJobDescription = document.createElement("p");
+    let newJobCompany = document.createElement("p");
+    let newJobLink = document.createElement("p");
+    let divJob = document.getElementById("career")
+
+    newJobTitle.innerText = "Title: " + this.title;
+    newJobDescription.innerText = "Description: " + this.description;
+    newJobCompany.innerText = "Company: " + this.company;
+    newJobLink.innerText = "Link to Job: " + this.link;
+
+    newJob.append(newJobTitle, newJobDescription, newJobCompany, newJobLink);
+    divJob.appendChild(newJob);
   }
 }

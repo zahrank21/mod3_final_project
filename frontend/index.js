@@ -73,6 +73,14 @@ document.addEventListener("DOMContentLoaded", event => {
 
   renderNewMealPal();
 
+  function renderJobs(json) {
+    json.forEach(jsonJob => {
+      let newJob = new Job(jsonJob.title, jsonJob.description, jsonJob.company, jsonJob.link)
+      newJob.displayJobs();
+    })
+  }
+
+  fetchJSON("jobs").then(json => renderJobs(json));
 
 
 
