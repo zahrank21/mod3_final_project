@@ -1,10 +1,8 @@
-.column {
-  max-width: 500px;
-}
-
+/*
 #main_body {
   background-color: grey;
-}
+  padding: 30px;
+} */
 
 #login_splash_page {
   padding-top: 200px;
@@ -12,4 +10,29 @@
 
 #food {
   height: 100%;
+}
+
+#main_page {
+  z-index: 1;
+  position: absolute;
+  padding: 35px;
+  grid-gap: 10px;
+  background-color: yellow;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#login_signup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+.main_page_buttons {
+  border: 1px solid red;
+}
+
+
+#food_app_button {
+  max-width: 45%;
 }

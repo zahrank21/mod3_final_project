@@ -5,10 +5,7 @@ const BASE_URL = "http://localhost:3000/";
 
 document.addEventListener("DOMContentLoaded", event => {
 
-
-
 let users = document.getElementById("users");
-
 
   $('.menu .item')
   .tab()
@@ -37,7 +34,8 @@ let users = document.getElementById("users");
   })
 
   function loadMainPage() {
-    splashPage.innerHTML= `<div id="food">
+    splashPage.innerHTML= `
+    <div id="food">
 
       <h2>Food</h2>
 
