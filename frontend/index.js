@@ -36,14 +36,11 @@ document.addEventListener("DOMContentLoaded", event => {
   }
 
   fetchJSON("foods").then(json => renderFood(json))
-
-  //will refractor eventually
   newFood();
 
 
   function renderMealpals(json) {
     json.forEach(jsonMealpal => {
-      console.log(jsonMealpal)
       let newMealpal = new Mealpal(jsonMealpal.user_id, jsonMealpal.referral_link, jsonMealpal.count, jsonMealpal.expiration_date)
       newMealpal.displayMealpal();
     })
@@ -82,7 +79,28 @@ document.addEventListener("DOMContentLoaded", event => {
 
   fetchJSON("jobs").then(json => renderJobs(json));
 
+  let jobForm = document.getElementById("add-job");
+  function renderNewJob() {
+      jobForm.addEventListener("submit", event => {
+        event.preventDefault();
+        let newJobTitle = document.getElementById("job-title").value
+        let newJobDescription = document.getElementById("job-description").value
+        let newJobCompany = document.getElementById("job-company").value
+        let newJobLink = document.getElementById("job-link").value
+        let body = {user_id: newJobTitle, description: newJobDescription, company: newJobCompany, link: newJobLink}
+        renderJobs([body]);
+        fetch(BASE_URL + "jobs", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body)
+        })
+        event.target.reset();
+      })
+  }
 
+  renderNewJob();
 
 
 

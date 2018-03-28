@@ -22,4 +22,12 @@ class Job {
     newJob.append(newJobTitle, newJobDescription, newJobCompany, newJobLink);
     divJob.appendChild(newJob);
   }
+
+
+
+
+
+
+
+  //endofclass
 }
