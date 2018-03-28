@@ -1,95 +1,85 @@
 const BASE_URL = "http://localhost:3000/";
 
-
-
-
 document.addEventListener("DOMContentLoaded", event => {
+  let foodSection = document.getElementById("foodSection");
 
-let users = document.getElementById("users");
-
-  $('.menu .item')
-  .tab()
-  ;
-
-  $('.ui.checkbox').checkbox('attach events', '.check.button', 'check');
-
-  let splashPage = document.getElementById("main_body");
-  let loginButton = document.getElementById("login_button");
-  let signupButton = document.getElementById("signup_button");
-
-  // $('#login_splash_page')
-  // // default everything
-  // .transition()
-  // ;
-
-
-  clearHTML = () => splashPage.innerHTML = "";
-  loginButton.addEventListener("click", () => {
-    clearHTML();
-    loadMainPage();
-  })
-  signupButton.addEventListener("click", () => {
-    clearHTML();
-    loadMainPage();
-  })
-
-  function loadMainPage() {
-    splashPage.innerHTML= `
-    <div id="food">
-
-      <h2>Food</h2>
-
-      <div id ="fridge-container">
-        <h4>Community Fridge</h4>
-        <form id="add-food" action="/foods" method="POST">
-          <label>Add Food to Community Fridge:</label>
-          <input type="text" name="name" id="food-name" placeholder="Item">
-          <input type="integer" name="amount" id="food-count" placeholder="Amount">
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-
-      <div id = "mealpal-container">
-        <h4>MealPal Referrals</h4>
-        <form id="add-mealpal-link" action="/mealpals" method="POST">
-          <label>Add Your MealPal Link</label>
-          <input type="text" name="name" id="mealpal-link" placeholder="Link">
-          <label>Expiration Date</label>
-          <input type="date" name="date_field" id="expiration-date" placeholder="Date">
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-
-      <div id="restaurant-container">
-        <h4>Restaurant Recommendations</h4>
-
-      </div>
-
-    </div>
-
-    <div id="career">
-      <h2>Career</h2>
-
-      <div id="job-openings">
-        <label>Job Openings</label>
-
-      </div>
-
-      <div id="alumni-whiteboard">
-        <label>Alumni Whiteboard</label>
-
-      </div>
-
-    </div>
-
-    <div id="coding">
-    </div>
-
-    <div id="social">
-    </div>
-
-    <div id="commute">
-    </div>
-`
+  function fetchJSON (link) {
+    return fetch(BASE_URL + link)
+      .then(res => res.json())
   }
+
+  function renderFood(json) {
+    json.forEach(jsonFood => {
+      let newFood = new Food(jsonFood.type_of_food, jsonFood.in_fridge, jsonFood.count, jsonFood.community_fridge_id)
+      newFood.displayFood()
+    })
+  }
+
+  let newFoodForm = document.getElementById("newFoodForm")
+  function newFood() {
+    newFoodForm.addEventListener('submit', event => {
+      event.preventDefault();
+      let food = document.getElementById('food-name').value
+      let foodCount = parseInt(document.getElementById('food-count').value)
+      let body = {type_of_food: food, in_fridge: true, count: foodCount, community_fridge_id: 1}
+      renderFood([body]);
+      fetch(BASE_URL + "foods", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
+      event.target.reset();
+
+    })
+  }
+
+  fetchJSON("foods").then(json => renderFood(json))
+
+  //will refractor eventually
+  newFood();
+
+
+  function renderMealpals(json) {
+    json.forEach(jsonMealpal => {
+      console.log(jsonMealpal)
+      let newMealpal = new Mealpal(jsonMealpal.user_id, jsonMealpal.referral_link, jsonMealpal.count, jsonMealpal.expiration_date)
+      newMealpal.displayMealpal();
+    })
+  }
+
+  fetchJSON("mealpals").then(json => renderMealpals(json));
+
+  let mealpalForm = document.getElementById("add-mealpal-link")
+  function renderNewMealPal() {
+    mealpalForm.addEventListener('submit', event => {
+      event.preventDefault();
+      let mealpalLink = document.getElementById("mealpal-link").value
+      let expDate = document.getElementById("expiration-date").value
+      let body = {user_id: 1, referral_link: mealpalLink, count: 0, expiration_date: expDate}
+      renderMealpals([body])
+      fetch(BASE_URL + "mealpals", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
+      event.target.reset();
+    })
+
+  }
+
+  renderNewMealPal();
+
+
+
+
+
+
+
+
+
+
 })
