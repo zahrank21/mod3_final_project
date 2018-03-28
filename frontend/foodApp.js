@@ -58,7 +58,6 @@ foodButton.addEventListener("click", event => {
 
 
   let foodCont = document.getElementById("food_app");
-  debugger
   foodCont.appendChild(foodModal);
   // debugger
 

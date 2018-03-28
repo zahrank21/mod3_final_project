@@ -8,8 +8,8 @@
     <script src="jquery.js"></script>
     <script src="foods.js"></script>
     <script src="mealpals.js"></script>
+    <script src="careerApp.js"></script>
     <script src="foodApp.js"></script>
-
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
@@ -82,7 +82,7 @@
           <div class="main_page_buttons">
             <div id="food_app">
               <!-- <button id="food_app_button" class="ui button" type="button">Open the Fridge~~~</button> -->
-              <img id="food_app_button" src="./images/community_fridge.jpg" alt="Flatiron's Community Fridge">
+              <img id="food_app_button" src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/742e1653485373.59367344cc28b.jpg" alt="Flatiron's Community Fridge">
             </div>
           </div>
 
@@ -148,12 +148,32 @@
       </div>
 
     </div>
-  </div>
-</div>
-
+    <br>
 
     <div id="career">
       <h2>Career</h2>
+
+      <div id="jobs-container">
+        <label>Job Openings</label>
+        <form id="add-job" action="/jobs" method="POST">
+          <label>Position</label>
+          <input type="text" name="name" id="job-title" placeholder="Title">
+          <label>Description</label>
+          <input type="text" name="name" id="job-description" placeholder="Description">
+          <label>Company</label>
+          <input type="text" name="name" id="job-company" placeholder="Company Name">
+          <label>Link</label>
+          <input type="text" name="name" id="job-link" placeholder="Job Link">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+      <div id="whitepages-container">
+        <label>Alumni Whitepages</label>
+
+      </div>
+
+    </div>
 
       <div id="job-openings">
         <label>Job Openings</label>
@@ -166,8 +186,5 @@
       </div>
 
     </div>
-
-
-
   </body>
 </html>
