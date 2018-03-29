@@ -4,6 +4,54 @@ document.addEventListener("DOMContentLoaded", event => {
 
   $('.ui.dropdown').dropdown();
 
+
+// getting or making new user
+let signUpButton = document.getElementById('signup_button')
+signUpButton.addEventListener('click', event => {
+let proposedUsername = document.getElementById("signup-name").value;
+let firstName = document.getElementById('first-name').value;
+console.log(firstName)
+let lastName = document.getElementById('last-name').value;
+console.log(lastName)
+let cohort = document.getElementById('signup-cohort').value;
+console.log(cohort)
+fetchJSON('users').then(json => newUser(json, proposedUsername, firstName, lastName, cohort))
+})
+
+function newUser(json, proposedUsername, firstName, lastName, cohort){
+  let allUsernames = []
+  json.forEach(user => {
+    allUsernames.push(user.username)
+  })
+  if (allUsernames.includes(proposedUsername)){
+    alert('This username is already taken')
+  }else {
+    let newUser = new User(proposedUsername, firstName + ' ' + lastName, cohort, false )
+    console.log(newUser)
+    body = {username: proposedUsername, name: firstName + ' ' + lastName, cohort: cohort, alumni: false}
+    fetch(BASE_URL + "users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body)
+    })
+  }
+}
+
+
+let loginButton = document.getElementById('login_button')
+// loginButton.addEventListener('click', event => {
+//     let currentUser = document.getElementById("username").value
+//     console.log(currentUser)
+// })
+//
+// function getCurrentUser(currentUser){
+//   if currentUser
+// }
+
+
+// end
   let foodSection = document.getElementById("foodSection");
 
   function fetchJSON (link) {

@@ -5,19 +5,25 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @user = User.find(params[:id])
+    render json: @user
   end
 
-  def new
-
+  def create
+    @user = User.create(user_params)
+    render json: @user
   end
 
-  def edit
-
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    render json: @user
   end
 
-  def update
+  private
 
+  def user_params
+    params.require(:user).permit(:username, :name, :cohort, :alumni)
   end
 
 end

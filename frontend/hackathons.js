@@ -20,7 +20,16 @@ class Hackathon{
     newHackathonDatetime.innerText = 'Date and Time: ' + this.datetime;
     newHackathonLocation.innerText = 'Location: ' + this.location;
 
-    newHackathon.append(newHackathonName, newHackathonLanguage, newHackathonLocation, newHackathonDatetime)
+    const deleteButton = document.createElement('button')
+    const deleteButtonLabel = document.createTextNode('delete')
+    deleteButton.appendChild(deleteButtonLabel)
+    deleteButton.addEventListener('click', e => {
+      e.preventDefault()
+      e.target.parentNode.remove()
+
+    })
+
+    newHackathon.append(newHackathonName, newHackathonLanguage, newHackathonLocation, newHackathonDatetime, deleteButton)
     divHackathon.appendChild(newHackathon);
   }
 

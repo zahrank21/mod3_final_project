@@ -20,7 +20,16 @@ class networkingEvent{
     newNetworkingEventDescription.innerText = 'Description: ' + this.description;
     newNetworkingEventDatetime.innerText = 'Date and Time: ' + this.datetime;
 
-    newNetworkingEvent.append(newNetworkingEventName, newNetworkingEventLocation, newNetworkingEventDescription, newNetworkingEventDatetime)
+    const deleteButton = document.createElement('button')
+    const deleteButtonLabel = document.createTextNode('delete')
+    deleteButton.appendChild(deleteButtonLabel)
+    deleteButton.addEventListener('click', e => {
+      e.preventDefault()
+      e.target.parentNode.remove()
+
+    })
+
+    newNetworkingEvent.append(newNetworkingEventName, newNetworkingEventLocation, newNetworkingEventDescription, newNetworkingEventDatetime, deleteButton)
     divNetworkingEvent.appendChild(newNetworkingEvent)
   }
 
