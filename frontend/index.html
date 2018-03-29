@@ -9,6 +9,9 @@
     <script src="transitDirections.js"></script>
     <script src="jobs.js"></script>
     <script src="alumniWhitepages.js"></script>
+    <script src="hackathons.js"></script>
+
+
 
 
     <link rel="stylesheet" href="styles.css">
@@ -19,9 +22,9 @@
   <body>
 
     <div id="foodSection">
-      <label>FOOD SECTION</label>
+      <h2>FOOD SECTION</h2>
       <div id="communityFridge">
-        <h1>Community Fridge</h1>
+        <h3>Community Fridge</h3>
       </div>
 
       <div id="newFoodForm">
@@ -66,8 +69,26 @@
       </div>
       <div id="networking-events">
         <label>Networking Events</label>
-        <form id="add-event" action="events" method="post">
+        <form id="add-networking-event" action="/events" method="post">
 
+        </form>
+      </div>
+
+    </div>
+    <div id="coding">
+      <h2>Coding</h2>
+      <div id="hackathon-container">
+        <label>Hackathons</label>
+        <form id="add-hackathon" action="/hackathons" method="post">
+          <label>Add New Hackathon Event:</label>
+          <input type="text" name="name" id="hackathon-name" placeholder="Name">
+          <label>Location</label>
+          <input type="text" name="location" id="hackathon-location" placeholder="Location">
+          <label>Language</label>
+          <input type="text" name="language" id="hackathon-language" placeholder="Language">
+          <label>Date and Time</label>
+          <input type="datetime-local" name="datetime" id="hackathon-datetime" placeholder="Date and Time">
+          <input type="submit" value="Submit">
         </form>
       </div>
 
@@ -80,7 +101,7 @@
     </div>
 
     <div id="directions">
-      <h3>See directions to your destintion from Flatiron@</h3>
+      <h3>See directions to your destination from Flatiron@</h3>
       <div id="gmap">
         <form id="directions_form">
           <label>Where would you like to go?</label>
