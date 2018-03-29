@@ -1,6 +1,3 @@
-// console.log("transit direction js")
-// debugger
-
 document.addEventListener("DOMContentLoaded", event => {
   let direct = document.getElementById("directions_form")
   direct.addEventListener("submit", event => {

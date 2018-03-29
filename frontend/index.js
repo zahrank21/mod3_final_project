@@ -2,6 +2,7 @@ const BASE_URL = "http://localhost:3000/";
 
 document.addEventListener("DOMContentLoaded", event => {
 
+
 // getting or making new user
 let signUpButton = document.getElementById('signup_button')
 signUpButton.addEventListener('click', event => {
@@ -14,7 +15,6 @@ let cohort = document.getElementById('signup-cohort').value;
 console.log(cohort)
 fetchJSON('users').then(json => newUser(json, proposedUsername, firstName, lastName, cohort))
 })
-
 
 function newUser(json, proposedUsername, firstName, lastName, cohort){
   let allUsernames = []
@@ -47,6 +47,7 @@ let loginButton = document.getElementById('login_button')
 // function getCurrentUser(currentUser){
 //   if currentUser
 // }
+
 
 // end
   let foodSection = document.getElementById("foodSection");

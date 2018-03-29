@@ -13,7 +13,7 @@
     <script src="login_signup.js"></script>
     <script src="networkingEvents.js"></script>
     <script src="user.js"></script>
-
+    <script src="konami.js"></script>
 
 
     <link rel="stylesheet" href="styles.css">
@@ -22,73 +22,70 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
   </head>
   <body>
-
-    <div id="toClear">
-      <div id="login_signup">
-
-        <div id="login_signup_left">
-          <div id="welcome_text">
-            <p> Welcome to Flatiron App </p>
-          </div>
+    <div id="login_signup">
+      <div id="login_signup_left">
+        <div id="welcome_text">
+          <p> Welcome to Flatiron App </p>
         </div>
+      </div>
 
-        <div id="login_signup_right">
 
-          <div id="login_splash_page" class="ui middle aligned center aligned grid">
-            <div class="column" style="max-width: 500px;">
-              <div class="ui large form">
-                <!-- <div class="ui piled segment"> -->
-                  <h2 class="ui blue image header">
-                    <div>Flatiron Survival App</div>
-                  </h2>
+      <div id="login_signup_right">
+        <div id="login_splash_page" class="ui middle aligned center aligned grid">
+          <div class="column" style="max-width: 500px;">
+            <div class="ui large form">
+              <div id="login_div">
+              <div class="ui piled segment">
+                <h2 class="ui blue image header">
+                  <div>Flatiron Survival App</div>
+                </h2>
 
-                  <div class="ui top attached tabular menu">
-                    <a class="item active" data-tab="log_in">Log In~~</a>
-                    <a class="item" data-tab="sign_up">Sign Up~~</a>
-                  </div>
+                <div class="ui top attached tabular menu">
+                  <a class="item active" data-tab="log_in">Log In~~</a>
+                  <a class="item" data-tab="sign_up">Sign Up~~</a>
+                </div>
 
-                  <div class="ui bottom attached tab segment active" data-tab="log_in">
-                    <form class="ui large form" id = 'login-form'>
-                      <div class="field">
-                        <div class="ui left icon input">
-                          <i class="user icon"></i>
-                          <input id="username" name="username" placeholder="Username ">
+                <div class="ui bottom attached tab segment active" data-tab="log_in">
+                  <form class="ui large form">
+                    <div class="field">
+                      <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input id="username" name="username" placeholder="Username ">
+                      </div>
+                    </div>
+                      <button id="login_button" class="ui button" type="button">Log In!</button>
+                  </form>
+                </div>
+
+                <div class="ui bottom attached tab segment" data-tab="sign_up">
+                    <form class="ui small form" id="signup-form">
+                      <div class="two fields">
+                        <div class="field">
+                          <input type="text" id= 'first-name' placeholder="First Name">
+                        </div>
+                        <div class="field">
+                          <input type="text" id= 'last-name' placeholder="Last Name">
                         </div>
                       </div>
-                        <button id="login_button" class="ui button" type="button">Log In!</button>
+                      <div class="field">
+                        <input type="text" name="name" id="signup-name" placeholder="Username ">
+                      </div>
+                      <div class="field">
+                        <input type="text" name="cohort" id="signup-cohort" placeholder="Enter your Cohort Number (Ex: 012918)">
+                      </div>
+                      <div>
+                      </div>
+                      <label>Toggle if you're an Alumni!</label><br><br>
+                      <div class="ui toggle checkbox">
+                        <input type="checkbox" name="alumni">
+                        <label>I'm an Alumni~!</label><br>
+                      </div>
+                      <div>
+                        <button id="signup_button" class="ui button" type="button">Sign Up!!</button>
+                      </div>
                     </form>
-                  </div>
-
-                  <div class="ui bottom attached tab segment" data-tab="sign_up">
-                      <form class="ui small form" id="signup-form">
-                        <div class="two fields">
-                          <div class="field">
-                            <input type="text" id="first-name" placeholder="First Name">
-                          </div>
-                          <div class="field">
-                            <input type="text" id="last-name" placeholder="Last Name">
-                          </div>
-                        </div>
-                        <div class="field">
-                          <input type="text" name="name" id="signup-name" placeholder="Username ">
-                        </div>
-                        <div class="field">
-                          <input type="text" name="cohort" id="signup-cohort" placeholder="Enter your Cohort Number (Ex: 012918)">
-                        </div>
-                        <div>
-                        </div>
-                        <label>Toggle if you're an Alumni!</label><br><br>
-                        <div class="ui toggle checkbox">
-                          <input type="checkbox" id='alumni-status' name="alumni">
-                          <label>I'm an Alumni~!</label><br>
-                        </div>
-                        <div>
-                          <button id="signup_button" class="ui button" type="button">Sign Up!!</button>
-                        </div>
-                      </form>
-                  </div>
-
-                <!-- </div> -->
+                </div>
+              </div>
               </div>
             </div>
           </div>
@@ -96,7 +93,31 @@
       </div>
     </div>
 
+    <div id="side_navbar">
+      <!-- <div class="ui vertical pointing menu"> -->
+      <!-- <div class="ui top fixed horizontal pointing menu"> -->
+      <div class="ui secondary left vertical pointing menu">
 
+        <a class="item active">
+          Home
+        </a>
+        <a class="item">
+          Messages
+        </a>
+        <a class="item">
+          Friends
+        </a>
+        <a class="item">
+
+        </a>
+        <a class="item">
+
+        </a>
+        <a class="item" id="sign_out">
+          Sing out~~~~
+        </a>
+      </div>
+    </div>
 
     <div id="foodSection">
       <h2>FOOD SECTION</h2>
@@ -203,6 +224,8 @@
       <iframe width="450" height="450" frameborder="0" style="border:0"
         src="http://subwaytime.mta.info/index.html#/app/subwaytime/1/139/">
       </iframe>
+      <h1>LIRR</h1>
+      <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
     </div>
 
 
