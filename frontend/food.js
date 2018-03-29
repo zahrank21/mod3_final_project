@@ -1,5 +1,6 @@
 class Food {
-    constructor(food, inFridge = true, count, cFId = 1) {
+    constructor(id, food, inFridge = true, count, cFId = 1) {
+      this.id = id
       this.food = food;
       this.inFridge = inFridge;
       this.count = count;
@@ -13,7 +14,8 @@ class Food {
       newFoodItem.innerText = "Item: " + this.food;
       let newCountItem = document.createElement("p")
       newCountItem.innerText = "Quantity: " + this.count;
-
+      console.log(this.id)
+      
       const deleteButton = document.createElement('button')
       const deleteButtonLabel = document.createTextNode('delete')
       deleteButton.appendChild(deleteButtonLabel)
@@ -21,11 +23,23 @@ class Food {
         e.preventDefault()
         e.target.parentNode.remove()
 
+        let body = {type_of_food: this.food, in_fridge: true, count: this.count, community_fridge_id: 1}
+
+        fetch(BASE_URL + `foods/${this.id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body)
+        })
+
+
       })
 
       newItems.append(newFoodItem, newCountItem, deleteButton);
       communityFridge.appendChild(newItems);
     }
+
 
 }
 

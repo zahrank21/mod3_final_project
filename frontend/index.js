@@ -10,11 +10,8 @@ let signUpButton = document.getElementById('signup_button')
 signUpButton.addEventListener('click', event => {
 let proposedUsername = document.getElementById("signup-name").value;
 let firstName = document.getElementById('first-name').value;
-console.log(firstName)
 let lastName = document.getElementById('last-name').value;
-console.log(lastName)
 let cohort = document.getElementById('signup-cohort').value;
-console.log(cohort)
 fetchJSON('users').then(json => newUser(json, proposedUsername, firstName, lastName, cohort))
 })
 
@@ -27,7 +24,6 @@ function newUser(json, proposedUsername, firstName, lastName, cohort){
     alert('This username is already taken')
   }else {
     let newUser = new User(proposedUsername, firstName + ' ' + lastName, cohort, false )
-    console.log(newUser)
     body = {username: proposedUsername, name: firstName + ' ' + lastName, cohort: cohort, alumni: false}
     fetch(BASE_URL + "users", {
       method: "POST",
@@ -61,7 +57,7 @@ let loginButton = document.getElementById('login_button')
 
   function renderFood(json) {
     json.forEach(jsonFood => {
-      let newFood = new Food(jsonFood.type_of_food, jsonFood.in_fridge, jsonFood.count, jsonFood.community_fridge_id)
+      let newFood = new Food(jsonFood.id, jsonFood.type_of_food, jsonFood.in_fridge, jsonFood.count, jsonFood.community_fridge_id)
       newFood.displayFood()
     })
   }
@@ -73,7 +69,7 @@ let loginButton = document.getElementById('login_button')
       let food = document.getElementById('food-name').value
       let foodCount = parseInt(document.getElementById('food-count').value)
       let body = {type_of_food: food, in_fridge: true, count: foodCount, community_fridge_id: 1}
-      renderFood([body]);
+      renderFood([body])
       fetch(BASE_URL + "foods", {
         method: "POST",
         headers: {
@@ -81,6 +77,7 @@ let loginButton = document.getElementById('login_button')
         },
         body: JSON.stringify(body)
       })
+
       event.target.reset();
 
     })
@@ -92,7 +89,7 @@ let loginButton = document.getElementById('login_button')
 
   function renderMealpals(json) {
     json.forEach(jsonMealpal => {
-      let newMealpal = new Mealpal(jsonMealpal.user_id, jsonMealpal.referral_link, jsonMealpal.count, jsonMealpal.expiration_date)
+      let newMealpal = new Mealpal(jsonMealpal.id, jsonMealpal.user_id, jsonMealpal.referral_link, jsonMealpal.count, jsonMealpal.expiration_date)
       newMealpal.displayMealpal();
     })
   }
@@ -123,7 +120,7 @@ let loginButton = document.getElementById('login_button')
 
   function renderJobs(json) {
     json.forEach(jsonJob => {
-      let newJob = new Job(jsonJob.title, jsonJob.description, jsonJob.company, jsonJob.link)
+      let newJob = new Job(jsonJob.id, jsonJob.title, jsonJob.description, jsonJob.company, jsonJob.link)
       newJob.displayJobs();
     })
   }
@@ -168,7 +165,7 @@ let loginButton = document.getElementById('login_button')
 
 function renderHackathons(json){
   json.forEach(jsonHackathon =>{
-    let newHackathon = new Hackathon(jsonHackathon.name, jsonHackathon.language, jsonHackathon.datetime, jsonHackathon.location);
+    let newHackathon = new Hackathon(jsonHackathon.id, jsonHackathon.name, jsonHackathon.language, jsonHackathon.datetime, jsonHackathon.location);
     newHackathon.displayHackathon();
   })
 }
@@ -202,7 +199,7 @@ renderNewHackathon();
 
 function renderNetworkingEvents(json){
   json.forEach(jsonNetworkingEvent =>{
-    let newNetworkingEvent = new networkingEvent(jsonNetworkingEvent.name, jsonNetworkingEvent.location, jsonNetworkingEvent.description, jsonNetworkingEvent.datetime);
+    let newNetworkingEvent = new networkingEvent(jsonNetworkingEvent.id, jsonNetworkingEvent.name, jsonNetworkingEvent.location, jsonNetworkingEvent.description, jsonNetworkingEvent.datetime);
     newNetworkingEvent.displayNetworkingEvent();
   })
 }

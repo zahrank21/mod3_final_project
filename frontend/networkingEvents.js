@@ -1,5 +1,6 @@
 class networkingEvent{
-  constructor(name, location, description, datetime) {
+  constructor(id, name, location, description, datetime) {
+    this.id = id
     this.name = name
     this.location = location
     this.description = description
@@ -27,6 +28,15 @@ class networkingEvent{
       e.preventDefault()
       e.target.parentNode.remove()
 
+      let body = {name: this.name, location: this.location, description: this.description, datetime: this.datetime}
+
+      fetch(BASE_URL + `events/${this.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
     })
 
     newNetworkingEvent.append(newNetworkingEventName, newNetworkingEventLocation, newNetworkingEventDescription, newNetworkingEventDatetime, deleteButton)
