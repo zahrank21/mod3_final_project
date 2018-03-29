@@ -1,5 +1,5 @@
 #login_splash_page {
-  padding-top: 200px;
+  padding-top: 35%;
 }
 
 #login_signup {
@@ -18,7 +18,40 @@
 }
 
 #side_navbar {
-  padding-left: 30px;
+  padding-left: 35px;
   padding-top: 30px;
+  display: none;
+  background-color: white;
+}
+
+#content_body {
+  padding-left: 255px;
+}
+
+#communityFridge {
+  display: none;
+}
+
+#mealpal-container {
+  display: none;
+}
+
+#career{
+  display: none;
+}
+
+#coding {
+  display: none;
+}
+
+#alumni_whitepages {
+  display: none;
+}
+
+#directions {
+  display: none;
+}
+
+#mtaInfo {
   display: none;
 }

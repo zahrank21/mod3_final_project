@@ -2,11 +2,8 @@ const BASE_URL = "http://localhost:3000/";
 
 document.addEventListener("DOMContentLoaded", event => {
 
-  const signOut = document.getElementBy("sign_out")
-  signOut.addEventListener("click", () => {
-    window.location.reload(true);
-  })
-  
+  $('.ui.dropdown').dropdown();
+
   let foodSection = document.getElementById("foodSection");
 
   function fetchJSON (link) {
