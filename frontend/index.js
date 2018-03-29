@@ -103,7 +103,37 @@ document.addEventListener("DOMContentLoaded", event => {
   renderNewJob();
 
 
+function renderHackathons(json){
+  json.forEach(jsonHackathon =>{
+    let newHackathon = new Hackathon(jsonHackathon.name, jsonHackathon.language, jsonHackathon.datetime, jsonHackathon.location);
+    newHackathon.displayHackathon();
+  })
+}
 
+fetchJSON("hackathons").then(json => renderHackathons(json));
+
+let hackathonForm = document.getElementById('add-hackathon');
+function renderNewHackathon(){
+  hackathonForm.addEventListener("submit", event => {
+    event.preventDefault();
+    let newHackathonName = document.getElementById('hackathon-name').value;
+    let newHackathonLocation = document.getElementById('hackathon-location').value;
+    let newHackathonLanguage = document.getElementById('hackathon-language').value;
+    let newHackathonDatetime = document.getElementById('hackathon-datetime').value;
+    let body = {name: newHackathonName, language: newHackathonLanguage, datetime: newHackathonDatetime, location: newHackathonLocation}
+    renderHackathons([body]);
+    fetch(BASE_URL + "hackathons", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body)
+    })
+    event.target.reset();
+  })
+}
+
+renderNewHackathon();
 
 
 

@@ -12,7 +12,7 @@ class Job {
     let newJobDescription = document.createElement("p");
     let newJobCompany = document.createElement("p");
     let newJobLink = document.createElement("p");
-    let divJob = document.getElementById("career")
+    let divJob = document.getElementById("jobs-container")
 
     newJobTitle.innerText = "Title: " + this.title;
     newJobDescription.innerText = "Description: " + this.description;
