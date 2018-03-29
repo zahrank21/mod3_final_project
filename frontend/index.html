@@ -10,7 +10,7 @@
     <script src="jobs.js"></script>
     <script src="alumniWhitepages.js"></script>
     <script src="hackathons.js"></script>
-
+    <script src="networkingEvents.js"></script>
 
 
 
@@ -38,7 +38,7 @@
       </div>
 
       <div id = "mealpal-container">
-        <h4>MealPal Referrals</h4>
+        <h3>MealPal Referrals</h3>
         <form id="add-mealpal-link" action="/mealpals" method="POST">
           <label>Add Your MealPal Link</label>
           <input type="text" name="name" id="mealpal-link" placeholder="Link">
@@ -48,13 +48,12 @@
         </form>
       </div>
 
-      <h2 id="test">test</h2>
     </div>
 
     <div id="career">
       <h2>Career</h2>
       <div id="jobs-container">
-        <label>Job Openings</label>
+        <h3>Job Openings</h3>
         <form id="add-job" action="/jobs" method="POST">
           <label>Position</label>
           <input type="text" name="name" id="job-title" placeholder="Title">
@@ -67,10 +66,18 @@
           <input type="submit" value="Submit">
         </form>
       </div>
-      <div id="networking-events">
-        <label>Networking Events</label>
+      <div id="networking-event-container">
+        <h3>Networking Events</h3>
         <form id="add-networking-event" action="/events" method="post">
-
+          <label>Add New Networking Event:</label>
+          <input type="text" name="name" id="networking-event-name" placeholder="Name">
+          <label>Location</label>
+          <input type="text" name="name" id="networking-event-location" placeholder="Location">
+          <label>Description</label>
+          <input type="text" name="name" id="networking-event-description" placeholder="Description">
+          <label>Date and Time: </label>
+          <input type="datetime-local" name="datetime" id="networking-event-datetime" placeholder="Date and Time">
+          <input type="submit" value="Submit">
         </form>
       </div>
 
@@ -78,7 +85,7 @@
     <div id="coding">
       <h2>Coding</h2>
       <div id="hackathon-container">
-        <label>Hackathons</label>
+        <h3>Hackathons</h3>
         <form id="add-hackathon" action="/hackathons" method="post">
           <label>Add New Hackathon Event:</label>
           <input type="text" name="name" id="hackathon-name" placeholder="Name">

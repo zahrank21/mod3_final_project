@@ -2,10 +2,7 @@
 // debugger
 
 document.addEventListener("DOMContentLoaded", event => {
-  console.log("inside transitDirections");
   let direct = document.getElementById("directions_form")
-  console.log("direct is", direct);
-  console.log("--------");
   direct.addEventListener("submit", event => {
     event.preventDefault();
     let destination = document.getElementById("destinations");

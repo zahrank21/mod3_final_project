@@ -151,6 +151,40 @@ function renderNewHackathon(){
 renderNewHackathon();
 
 
+function renderNetworkingEvents(json){
+  json.forEach(jsonNetworkingEvent =>{
+    let newNetworkingEvent = new networkingEvent(jsonNetworkingEvent.name, jsonNetworkingEvent.location, jsonNetworkingEvent.description, jsonNetworkingEvent.datetime);
+    newNetworkingEvent.displayNetworkingEvent();
+  })
+}
+
+fetchJSON('events').then(json => renderNetworkingEvents(json));
+
+let networkingEventForm = document.getElementById('add-networking-event')
+function renderNewNetworkingEvent(){
+  networkingEventForm.addEventListener('submit', event => {
+    event.preventDefault();
+    let newNetworkingEventName = document.getElementById('networking-event-name').value;
+    let newNetworkingEventLocation = document.getElementById('networking-event-location').value;
+    let newNetworkingEventDescription = document.getElementById('networking-event-description').value;
+    let newNetworkingEventDatetime = document.getElementById('networking-event-datetime').value;
+    let body = {name: newNetworkingEventName, description: newNetworkingEventDescription, datetime: newNetworkingEventDatetime, location: newNetworkingEventLocation}
+    renderNetworkingEvents([body]);
+    fetch(BASE_URL + "events", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body)
+    })
+    event.target.reset();
+
+  })
+}
+
+renderNewNetworkingEvent();
+
+
 
 
 })
