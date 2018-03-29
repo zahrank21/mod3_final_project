@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :restaurants
+  resources :whiteboards
   resources :foods
   resources :community_fridges
   resources :mealpals
