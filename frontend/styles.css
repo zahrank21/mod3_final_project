@@ -1,0 +1,9 @@
+#login_splash_page {
+  padding-top: 200px;
+}
+
+#login_signup {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  height: 100%;
+}

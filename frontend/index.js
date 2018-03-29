@@ -2,7 +2,6 @@ const BASE_URL = "http://localhost:3000/";
 
 document.addEventListener("DOMContentLoaded", event => {
 
-
   let foodSection = document.getElementById("foodSection");
 
   function fetchJSON (link) {

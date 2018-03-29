@@ -9,16 +9,20 @@
 }
 
 #login_box {
-  margin-top: 35%;
+  margin-top: 10%;
   padding-left: 45px;
   padding-right: 45px;
 }
 
 #signup_box{
-  padding: 200px;
+  padding: 100px;
 }
 
 #welcome_text {
   border: 1px solid yellow;
   vertical-align: middle;
+}
+
+#login_splash_page {
+  padding-top: 200px;
 }
