@@ -20,92 +20,78 @@
   </head>
   <body>
 
-    <div id="login_signup">
+    <div id="toClear">
+      <div id="login_signup">
 
-      <div id="login_signup_left">
-        <div id="welcome_text">
-          <p> Welcome to Flatiron App </p>
-        </div>
-      </div>
-
-      <div id="login_signup_right">
-
-        <div id="login_splash_page" class="ui middle aligned center aligned grid">
-          <div class="column" style="max-width: 500px;">
-            <div class="ui large form">
-              <!-- <div class="ui piled segment"> -->
-                <h2 class="ui blue image header">
-                  <div>Flatiron Survival App</div>
-                </h2>
-
-                <div class="ui top attached tabular menu">
-                  <a class="item active" data-tab="log_in">Log In~~</a>
-                  <a class="item" data-tab="sign_up">Sign Up~~</a>
-                </div>
-
-                <div class="ui bottom attached tab segment active" data-tab="log_in">
-                  <form class="ui large form">
-                    <div class="field">
-                      <div class="ui left icon input">
-                        <i class="user icon"></i>
-                        <input id="username" name="username" placeholder="Username ">
-                      </div>
-                    </div>
-                      <button id="login_button" class="ui button" type="button">Log In!</button>
-                  </form>
-                </div>
-
-                <div class="ui bottom attached tab segment" data-tab="sign_up">
-                    <form class="ui small form" id="signup-form">
-                      <div class="two fields">
-                        <div class="field">
-                          <input type="text" placeholder="First Name">
-                        </div>
-                        <div class="field">
-                          <input type="text" placeholder="Last Name">
-                        </div>
-                      </div>
-                      <div class="field">
-                        <input type="text" name="name" id="signup-name" placeholder="Username ">
-                      </div>
-                      <div class="field">
-                        <input type="text" name="cohort" id="signup-cohort" placeholder="Enter your Cohort Number (Ex: 012918)">
-                      </div>
-                      <div>
-                      </div>
-                      <label>Toggle if you're an Alumni!</label><br><br>
-                      <div class="ui toggle checkbox">
-                        <input type="checkbox" name="alumni">
-                        <label>I'm an Alumni~!</label><br>
-                      </div>
-                      <div>
-                        <button id="signup_button" class="ui button" type="button">Sign Up!!</button>
-                      </div>
-                    </form>
-                </div>
-
-              <!-- </div> -->
-            </div>
+        <div id="login_signup_left">
+          <div id="welcome_text">
+            <p> Welcome to Flatiron App </p>
           </div>
         </div>
 
+        <div id="login_signup_right">
 
+          <div id="login_splash_page" class="ui middle aligned center aligned grid">
+            <div class="column" style="max-width: 500px;">
+              <div class="ui large form">
+                <!-- <div class="ui piled segment"> -->
+                  <h2 class="ui blue image header">
+                    <div>Flatiron Survival App</div>
+                  </h2>
 
+                  <div class="ui top attached tabular menu">
+                    <a class="item active" data-tab="log_in">Log In~~</a>
+                    <a class="item" data-tab="sign_up">Sign Up~~</a>
+                  </div>
 
+                  <div class="ui bottom attached tab segment active" data-tab="log_in">
+                    <form class="ui large form">
+                      <div class="field">
+                        <div class="ui left icon input">
+                          <i class="user icon"></i>
+                          <input id="username" name="username" placeholder="Username ">
+                        </div>
+                      </div>
+                        <button id="login_button" class="ui button" type="button">Log In!</button>
+                    </form>
+                  </div>
 
+                  <div class="ui bottom attached tab segment" data-tab="sign_up">
+                      <form class="ui small form" id="signup-form">
+                        <div class="two fields">
+                          <div class="field">
+                            <input type="text" placeholder="First Name">
+                          </div>
+                          <div class="field">
+                            <input type="text" placeholder="Last Name">
+                          </div>
+                        </div>
+                        <div class="field">
+                          <input type="text" name="name" id="signup-name" placeholder="Username ">
+                        </div>
+                        <div class="field">
+                          <input type="text" name="cohort" id="signup-cohort" placeholder="Enter your Cohort Number (Ex: 012918)">
+                        </div>
+                        <div>
+                        </div>
+                        <label>Toggle if you're an Alumni!</label><br><br>
+                        <div class="ui toggle checkbox">
+                          <input type="checkbox" name="alumni">
+                          <label>I'm an Alumni~!</label><br>
+                        </div>
+                        <div>
+                          <button id="signup_button" class="ui button" type="button">Sign Up!!</button>
+                        </div>
+                      </form>
+                  </div>
 
-
-
-
-
-
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-
-
-
     </div>
-
 
 
 
@@ -219,6 +205,13 @@
       </div>
     </div>
 
+
+    <div id="mtaInfo">
+      <h1>MTA Arrival Times</h1>
+      <iframe width="450" height="450" frameborder="0" style="border:0"
+        src="http://subwaytime.mta.info/index.html#/app/subwaytime/1/139/">
+      </iframe>
+    </div>
 
 
   </body>
