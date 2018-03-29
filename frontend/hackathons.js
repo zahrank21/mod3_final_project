@@ -1,5 +1,6 @@
 class Hackathon{
-  constructor(name, language, datetime, location) {
+  constructor(id, name, language, datetime, location) {
+    this.id = id
     this.name = name
     this.language = language
     this.datetime = datetime
@@ -26,6 +27,17 @@ class Hackathon{
     deleteButton.addEventListener('click', e => {
       e.preventDefault()
       e.target.parentNode.remove()
+
+
+      let body = {name: this.name, language: this.language, datetime: this.datetime, location: this.location}
+
+      fetch(BASE_URL + `hackathons/${this.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
 
     })
 

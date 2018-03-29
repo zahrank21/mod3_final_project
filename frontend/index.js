@@ -120,7 +120,7 @@ let loginButton = document.getElementById('login_button')
 
   function renderJobs(json) {
     json.forEach(jsonJob => {
-      let newJob = new Job(jsonJob.title, jsonJob.description, jsonJob.company, jsonJob.link)
+      let newJob = new Job(jsonJob.id, jsonJob.title, jsonJob.description, jsonJob.company, jsonJob.link)
       newJob.displayJobs();
     })
   }
@@ -165,7 +165,7 @@ let loginButton = document.getElementById('login_button')
 
 function renderHackathons(json){
   json.forEach(jsonHackathon =>{
-    let newHackathon = new Hackathon(jsonHackathon.name, jsonHackathon.language, jsonHackathon.datetime, jsonHackathon.location);
+    let newHackathon = new Hackathon(jsonHackathon.id, jsonHackathon.name, jsonHackathon.language, jsonHackathon.datetime, jsonHackathon.location);
     newHackathon.displayHackathon();
   })
 }
@@ -199,7 +199,7 @@ renderNewHackathon();
 
 function renderNetworkingEvents(json){
   json.forEach(jsonNetworkingEvent =>{
-    let newNetworkingEvent = new networkingEvent(jsonNetworkingEvent.name, jsonNetworkingEvent.location, jsonNetworkingEvent.description, jsonNetworkingEvent.datetime);
+    let newNetworkingEvent = new networkingEvent(jsonNetworkingEvent.id, jsonNetworkingEvent.name, jsonNetworkingEvent.location, jsonNetworkingEvent.description, jsonNetworkingEvent.datetime);
     newNetworkingEvent.displayNetworkingEvent();
   })
 }

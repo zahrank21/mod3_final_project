@@ -1,5 +1,6 @@
 class Job {
-  constructor(title, description, company, link) {
+  constructor(id, title, description, company, link) {
+    this.id = id
     this.title = title
     this.description = description
     this.company = company
@@ -28,6 +29,15 @@ class Job {
       e.preventDefault()
       e.target.parentNode.remove()
 
+      let body = {title: this.title, description: this.description, company: this.company, link: this.link}
+
+      fetch(BASE_URL + `jobs/${this.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
     })
 
 
