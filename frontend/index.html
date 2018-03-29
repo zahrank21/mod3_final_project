@@ -12,6 +12,7 @@
     <script src="hackathons.js"></script>
     <script src="login_signup.js"></script>
     <script src="networkingEvents.js"></script>
+    <script src="user.js"></script>
 
 
 
@@ -47,7 +48,7 @@
                   </div>
 
                   <div class="ui bottom attached tab segment active" data-tab="log_in">
-                    <form class="ui large form">
+                    <form class="ui large form" id = 'login-form'>
                       <div class="field">
                         <div class="ui left icon input">
                           <i class="user icon"></i>
@@ -62,10 +63,10 @@
                       <form class="ui small form" id="signup-form">
                         <div class="two fields">
                           <div class="field">
-                            <input type="text" placeholder="First Name">
+                            <input type="text" id="first-name" placeholder="First Name">
                           </div>
                           <div class="field">
-                            <input type="text" placeholder="Last Name">
+                            <input type="text" id="last-name" placeholder="Last Name">
                           </div>
                         </div>
                         <div class="field">
@@ -78,7 +79,7 @@
                         </div>
                         <label>Toggle if you're an Alumni!</label><br><br>
                         <div class="ui toggle checkbox">
-                          <input type="checkbox" name="alumni">
+                          <input type="checkbox" id='alumni-status' name="alumni">
                           <label>I'm an Alumni~!</label><br>
                         </div>
                         <div>
@@ -94,24 +95,6 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
