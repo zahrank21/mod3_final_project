@@ -13,7 +13,17 @@ class Food {
       newFoodItem.innerText = "Item: " + this.food;
       let newCountItem = document.createElement("p")
       newCountItem.innerText = "Quantity: " + this.count;
-      newItems.append(newFoodItem, newCountItem);
+
+      const deleteButton = document.createElement('button')
+      const deleteButtonLabel = document.createTextNode('delete')
+      deleteButton.appendChild(deleteButtonLabel)
+      deleteButton.addEventListener('click', e => {
+        e.preventDefault()
+        e.target.parentNode.remove()
+
+      })
+
+      newItems.append(newFoodItem, newCountItem, deleteButton);
       communityFridge.appendChild(newItems);
     }
 

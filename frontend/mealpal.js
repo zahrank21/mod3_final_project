@@ -17,7 +17,16 @@ class Mealpal {
     expDate.innerText = "Expiration Date: " + this.expDate
     linkCount.innerText = "Used: " + this.count + " time(s)"
 
-    newItems.append(newMealpalLink, expDate, linkCount)
+    const deleteButton = document.createElement('button')
+    const deleteButtonLabel = document.createTextNode('delete')
+    deleteButton.appendChild(deleteButtonLabel)
+    deleteButton.addEventListener('click', e => {
+      e.preventDefault()
+      e.target.parentNode.remove()
+
+    })
+
+    newItems.append(newMealpalLink, expDate, linkCount, deleteButton)
     divMealpal.appendChild(newItems)
   }
 

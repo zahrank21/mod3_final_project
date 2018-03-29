@@ -21,7 +21,17 @@ class Job {
     newJobLink.innerHTML = `Link to Job: <a href="http://${this.link}"> ${this.link}</a>`;
 
 
-    newJob.append(newJobTitle, newJobDescription, newJobCompany, newJobLink);
+    const deleteButton = document.createElement('button')
+    const deleteButtonLabel = document.createTextNode('delete')
+    deleteButton.appendChild(deleteButtonLabel)
+    deleteButton.addEventListener('click', e => {
+      e.preventDefault()
+      e.target.parentNode.remove()
+
+    })
+
+
+    newJob.append(newJobTitle, newJobDescription, newJobCompany, newJobLink, deleteButton);
     divJob.appendChild(newJob);
   }
 
