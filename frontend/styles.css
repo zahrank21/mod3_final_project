@@ -6,4 +6,19 @@
   display: grid;
   grid-template-columns: repeat(2, 2fr);
   height: 100%;
+  background-image: url("./images/flatiron_blg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#login_div {
+  background-color: blue;
+  opacity: 0.85;
+}
+
+#side_navbar {
+  padding-left: 30px;
+  padding-top: 30px;
+  display: none;
 }
