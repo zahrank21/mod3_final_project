@@ -1,6 +1,8 @@
 const BASE_URL = "http://localhost:3000/";
 
 document.addEventListener("DOMContentLoaded", event => {
+
+
   let foodSection = document.getElementById("foodSection");
 
   function fetchJSON (link) {
@@ -102,7 +104,17 @@ document.addEventListener("DOMContentLoaded", event => {
 
   renderNewJob();
 
+  function renderAlumnis(json) {
+    json.forEach(jsonAlumni => {
+      if(jsonAlumni.alumni === true) {
 
+        let newAlumni = new Alumni(jsonAlumni.username, jsonAlumni.name, jsonAlumni.cohort)
+        newAlumni.displayAlumni();
+      }
+    })
+  }
+
+  fetchJSON("users").then(json => renderAlumnis(json));
 
 
 

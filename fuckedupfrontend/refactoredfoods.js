@@ -1,11 +1,5 @@
 const communityFridge = document.getElementById("fridge-container")
 
-function test(json) {
-  console.log(json);
-}
-
-
-
 function Food() {
   return class Food {
     constructor(type_of_food, in_fridge = true, count, community_fridge = 1) {
@@ -14,7 +8,6 @@ function Food() {
       this.count = count
       this.community_fridge = community_fridge
     }
-
 
 
     renderNewFood() {
