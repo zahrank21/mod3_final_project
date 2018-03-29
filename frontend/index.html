@@ -101,7 +101,7 @@
       </a>
 
       <div class="ui dropdown item">
-        <div class="text">Food Section</div>
+        Food Section
         <i class="dropdown icon"></i>
         <div class="menu">
           <a class="item" id="mealpal_block">Mealpal Referrals</a>
@@ -109,12 +109,20 @@
         </div>
       </div >
 
-      <a class="item">
-        Friends
-      </a>
-      <a class="item">
+      <div class="ui dropdown item">
+        Career
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" id="job_block">Job Openings</a>
+          <a class="item" id="networking_block">Networking Events</a>
+        </div>
+      </div>
 
-      </a>
+
+      
+      <div class="item">
+
+      </div>
       <a class="item">
 
       </a>
@@ -125,66 +133,6 @@
     </div>
 
     <div id="content_body">
-      <div id="foodSection">
-        <div id="communityFridge">
-          <h3>Community Fridge</h3>
-          <div id="newFoodForm">
-            <label>ADD NEW FOOD TO FRIDGE</label>
-            <form id="add-food" action="/foods" method="POST">
-              <label>Add Food to Community Fridge:</label>
-              <input type="text" name="name" id="food-name" placeholder="Item">
-              <input type="integer" name="amount" id="food-count" placeholder="Amount">
-              <input type="submit" value="Submit">
-            </form>
-          </div>
-        </div>
-
-
-        <div id = "mealpal-container">
-          <h3>MealPal Referrals</h3>
-          <form id="add-mealpal-link" action="/mealpals" method="POST">
-            <label>Add Your MealPal Link</label>
-            <input type="text" name="name" id="mealpal-link" placeholder="Link">
-            <label>Expiration Date</label>
-            <input type="date" name="date_field" id="expiration-date" placeholder="Date">
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-
-      </div>
-
-      <div id="career">
-        <h2>Career</h2>
-        <div id="jobs-container">
-          <h3>Job Openings</h3>
-          <form id="add-job" action="/jobs" method="POST">
-            <label>Position</label>
-            <input type="text" name="name" id="job-title" placeholder="Title">
-            <label>Description</label>
-            <input type="text" name="name" id="job-description" placeholder="Description">
-            <label>Company</label>
-            <input type="text" name="name" id="job-company" placeholder="Company Name">
-            <label>Link</label>
-            <input type="text" name="name" id="job-link" placeholder="Job Link">
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-        <div id="networking-event-container">
-          <h3>Networking Events</h3>
-          <form id="add-networking-event" action="/events" method="post">
-            <label>Add New Networking Event:</label>
-            <input type="text" name="name" id="networking-event-name" placeholder="Name">
-            <label>Location</label>
-            <input type="text" name="name" id="networking-event-location" placeholder="Location">
-            <label>Description</label>
-            <input type="text" name="name" id="networking-event-description" placeholder="Description">
-            <label>Date and Time: </label>
-            <input type="datetime-local" name="datetime" id="networking-event-datetime" placeholder="Date and Time">
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-
-      </div>
 
       <div id="coding">
         <h2>Coding</h2>

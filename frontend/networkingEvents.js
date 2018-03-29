@@ -33,15 +33,32 @@ class networkingEvent{
     divNetworkingEvent.appendChild(newNetworkingEvent)
   }
 
-
-
-
-
-
-
-
-
-
-
-
 }
+
+document.addEventListener("DOMContentLoaded", event => {
+
+  const contentBody = document.getElementById("content_body")
+  const networkButton = document.getElementById("networking_block");
+  networkButton.addEventListener("click", event => {
+    contentBody.innerHTML = "";
+    // const foodSection = document.getElementById("communityFridge");
+    // foodSection.style.display = "block"
+    let networkEvent = document.createElement("div");
+    networkEvent.innerHTML = `<div id="networking-event-container">
+      <h3>Networking Events</h3>
+      <form id="add-networking-event" action="/events" method="post">
+        <label>Add New Networking Event:</label>
+        <input type="text" name="name" id="networking-event-name" placeholder="Name">
+        <label>Location</label>
+        <input type="text" name="name" id="networking-event-location" placeholder="Location">
+        <label>Description</label>
+        <input type="text" name="name" id="networking-event-description" placeholder="Description">
+        <label>Date and Time: </label>
+        <input type="datetime-local" name="datetime" id="networking-event-datetime" placeholder="Date and Time">
+        <input type="submit" value="Submit">
+      </form>
+    </div>`
+    contentBody.appendChild(networkEvent);
+  })
+
+})
