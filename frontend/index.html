@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Flatiron Survival App</title>
     <script src="index.js"></script>
     <script src="food.js"></script>
     <script src="mealpal.js"></script>
@@ -22,6 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
   </head>
   <body>
+
     <div id="login_signup">
       <div id="login_signup_left">
         <div id="welcome_text">
@@ -93,141 +94,145 @@
       </div>
     </div>
 
-    <div id="side_navbar">
-      <!-- <div class="ui vertical pointing menu"> -->
-      <!-- <div class="ui top fixed horizontal pointing menu"> -->
-      <div class="ui secondary left vertical pointing menu">
+    <div id="side_navbar" class="ui large secondary fixed left vertical pointing massive menu">
 
-        <a class="item active">
-          Home
-        </a>
-        <a class="item">
-          Messages
-        </a>
-        <a class="item">
-          Friends
-        </a>
-        <a class="item">
+      <a class="item">
+        Home
+      </a>
 
-        </a>
-        <a class="item">
+      <div class="ui dropdown item">
+        <div class="text">Food Section</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" id="mealpal_block">Mealpal Referrals</a>
+          <a class="item" id="commFridge_block">Community Fridge</a>
+        </div>
+      </div >
 
-        </a>
-        <a class="item" id="sign_out">
-          Sing out~~~~
-        </a>
+      <a class="item">
+        Friends
+      </a>
+      <a class="item">
+
+      </a>
+      <a class="item">
+
+      </a>
+      <a class="item" id="sign_out">
+        Sing out~~~~
+      </a>
       </div>
     </div>
 
-    <div id="foodSection">
-      <h2>FOOD SECTION</h2>
-      <div id="communityFridge">
-        <h3>Community Fridge</h3>
+    <div id="content_body">
+      <div id="foodSection">
+        <div id="communityFridge">
+          <h3>Community Fridge</h3>
+          <div id="newFoodForm">
+            <label>ADD NEW FOOD TO FRIDGE</label>
+            <form id="add-food" action="/foods" method="POST">
+              <label>Add Food to Community Fridge:</label>
+              <input type="text" name="name" id="food-name" placeholder="Item">
+              <input type="integer" name="amount" id="food-count" placeholder="Amount">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+
+
+        <div id = "mealpal-container">
+          <h3>MealPal Referrals</h3>
+          <form id="add-mealpal-link" action="/mealpals" method="POST">
+            <label>Add Your MealPal Link</label>
+            <input type="text" name="name" id="mealpal-link" placeholder="Link">
+            <label>Expiration Date</label>
+            <input type="date" name="date_field" id="expiration-date" placeholder="Date">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+
       </div>
 
-      <div id="newFoodForm">
-        <label>ADD NEW FOOD TO FRIDGE</label>
-        <form id="add-food" action="/foods" method="POST">
-          <label>Add Food to Community Fridge:</label>
-          <input type="text" name="name" id="food-name" placeholder="Item">
-          <input type="integer" name="amount" id="food-count" placeholder="Amount">
-          <input type="submit" value="Submit">
-        </form>
+      <div id="career">
+        <h2>Career</h2>
+        <div id="jobs-container">
+          <h3>Job Openings</h3>
+          <form id="add-job" action="/jobs" method="POST">
+            <label>Position</label>
+            <input type="text" name="name" id="job-title" placeholder="Title">
+            <label>Description</label>
+            <input type="text" name="name" id="job-description" placeholder="Description">
+            <label>Company</label>
+            <input type="text" name="name" id="job-company" placeholder="Company Name">
+            <label>Link</label>
+            <input type="text" name="name" id="job-link" placeholder="Job Link">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <div id="networking-event-container">
+          <h3>Networking Events</h3>
+          <form id="add-networking-event" action="/events" method="post">
+            <label>Add New Networking Event:</label>
+            <input type="text" name="name" id="networking-event-name" placeholder="Name">
+            <label>Location</label>
+            <input type="text" name="name" id="networking-event-location" placeholder="Location">
+            <label>Description</label>
+            <input type="text" name="name" id="networking-event-description" placeholder="Description">
+            <label>Date and Time: </label>
+            <input type="datetime-local" name="datetime" id="networking-event-datetime" placeholder="Date and Time">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+
       </div>
 
-      <div id = "mealpal-container">
-        <h3>MealPal Referrals</h3>
-        <form id="add-mealpal-link" action="/mealpals" method="POST">
-          <label>Add Your MealPal Link</label>
-          <input type="text" name="name" id="mealpal-link" placeholder="Link">
-          <label>Expiration Date</label>
-          <input type="date" name="date_field" id="expiration-date" placeholder="Date">
-          <input type="submit" value="Submit">
-        </form>
+      <div id="coding">
+        <h2>Coding</h2>
+        <div id="hackathon-container">
+          <h3>Hackathons</h3>
+          <form id="add-hackathon" action="/hackathons" method="post">
+            <label>Add New Hackathon Event:</label>
+            <input type="text" name="name" id="hackathon-name" placeholder="Name">
+            <label>Location</label>
+            <input type="text" name="location" id="hackathon-location" placeholder="Location">
+            <label>Language</label>
+            <input type="text" name="language" id="hackathon-language" placeholder="Language">
+            <label>Date and Time</label>
+            <input type="datetime-local" name="datetime" id="hackathon-datetime" placeholder="Date and Time">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+
       </div>
 
-    </div>
-
-    <div id="career">
-      <h2>Career</h2>
-      <div id="jobs-container">
-        <h3>Job Openings</h3>
-        <form id="add-job" action="/jobs" method="POST">
-          <label>Position</label>
-          <input type="text" name="name" id="job-title" placeholder="Title">
-          <label>Description</label>
-          <input type="text" name="name" id="job-description" placeholder="Description">
-          <label>Company</label>
-          <input type="text" name="name" id="job-company" placeholder="Company Name">
-          <label>Link</label>
-          <input type="text" name="name" id="job-link" placeholder="Job Link">
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-      <div id="networking-event-container">
-        <h3>Networking Events</h3>
-        <form id="add-networking-event" action="/events" method="post">
-          <label>Add New Networking Event:</label>
-          <input type="text" name="name" id="networking-event-name" placeholder="Name">
-          <label>Location</label>
-          <input type="text" name="name" id="networking-event-location" placeholder="Location">
-          <label>Description</label>
-          <input type="text" name="name" id="networking-event-description" placeholder="Description">
-          <label>Date and Time: </label>
-          <input type="datetime-local" name="datetime" id="networking-event-datetime" placeholder="Date and Time">
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-
-    </div>
-    <div id="coding">
-      <h2>Coding</h2>
-      <div id="hackathon-container">
-        <h3>Hackathons</h3>
-        <form id="add-hackathon" action="/hackathons" method="post">
-          <label>Add New Hackathon Event:</label>
-          <input type="text" name="name" id="hackathon-name" placeholder="Name">
-          <label>Location</label>
-          <input type="text" name="location" id="hackathon-location" placeholder="Location">
-          <label>Language</label>
-          <input type="text" name="language" id="hackathon-language" placeholder="Language">
-          <label>Date and Time</label>
-          <input type="datetime-local" name="datetime" id="hackathon-datetime" placeholder="Date and Time">
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-
-    </div>
-
-    <div id="alumni_whitepages">
-      <label><h1>Contact an Alumni!</h1></label>
-      <div id="alumnis">
-      </div>
-    </div>
-
-    <div id="directions">
-      <h3>See directions to your destination from Flatiron@</h3>
-      <div id="gmap">
-        <form id="directions_form">
-          <label>Where would you like to go?</label>
-          <input type="text" name="name" id="destinations" placeholder="Destination">
-          <input type="submit" value="Submit">
-        </form>
-        <div id="mapDiv">
+      <div id="alumni_whitepages">
+        <label><h1>Contact an Alumni!</h1></label>
+        <div id="alumnis">
         </div>
       </div>
-    </div>
+
+      <div id="directions">
+        <h3>See directions to your destination from Flatiron@</h3>
+        <div id="gmap">
+          <form id="directions_form">
+            <label>Where would you like to go?</label>
+            <input type="text" name="name" id="destinations" placeholder="Destination">
+            <input type="submit" value="Submit">
+          </form>
+          <div id="mapDiv">
+          </div>
+        </div>
+      </div>
 
 
-    <div id="mtaInfo">
-      <h1>MTA Arrival Times</h1>
-      <iframe width="450" height="450" frameborder="0" style="border:0"
+      <div id="mtaInfo">
+        <h1>MTA Arrival Times</h1>
+        <iframe width="450" height="450" frameborder="0" style="border:0"
         src="http://subwaytime.mta.info/index.html#/app/subwaytime/1/139/">
       </iframe>
       <h1>LIRR</h1>
       <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
     </div>
-
-
+    </div>
   </body>
 </html>

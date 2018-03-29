@@ -2,6 +2,8 @@ const BASE_URL = "http://localhost:3000/";
 
 document.addEventListener("DOMContentLoaded", event => {
 
+  $('.ui.dropdown').dropdown();
+
 
 // getting or making new user
 let signUpButton = document.getElementById('signup_button')

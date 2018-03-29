@@ -42,3 +42,13 @@ class Food {
 
 
 }
+document.addEventListener("DOMContentLoaded", event => {
+
+  const foodButton = document.getElementById("commFridge_block");
+  foodButton.addEventListener("click", event => {
+    console.log('hello food')
+    const foodSection = document.getElementById("communityFridge");
+    foodSection.style.display = "block"
+  })
+
+})
