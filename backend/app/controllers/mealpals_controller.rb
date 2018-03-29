@@ -16,7 +16,7 @@ class MealpalsController < ApplicationController
   end
 
   def destroy
-    @mealpal = Food.find(params[:id])
+    @mealpal = Mealpal.find(params[:id])
     @mealpal.destroy
     render json: @mealpal
   end
@@ -24,7 +24,7 @@ class MealpalsController < ApplicationController
   private
 
   def mealpal_params
-    params.require(:mealpal).permit(:user_id, :referral_link, :count, :expiration_date)
+    params.require(:mealpal).permit(:id, :user_id, :referral_link, :count, :expiration_date)
   end
 
 end

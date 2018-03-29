@@ -1,5 +1,6 @@
 class Mealpal {
-  constructor(userId, referralLink, count = 0, expDate) {
+  constructor(id, userId, referralLink, count = 0, expDate) {
+    this.id = id
     this.userId = userId
     this.referralLink = referralLink
     this.count = count
@@ -23,6 +24,17 @@ class Mealpal {
     deleteButton.addEventListener('click', e => {
       e.preventDefault()
       e.target.parentNode.remove()
+
+      let body = {user_id: 1, referral_link: this.referralLink, count: this.count, expiration_date: this.expDate}
+
+      fetch(BASE_URL + `mealpals/${this.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
+
 
     })
 

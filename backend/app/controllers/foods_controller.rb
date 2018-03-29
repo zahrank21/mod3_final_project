@@ -24,7 +24,7 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:type_of_food, :in_fridge, :count, :community_fridge_id)
+    params.require(:food).permit(:id, :type_of_food, :in_fridge, :count, :community_fridge_id)
   end
 
 end
