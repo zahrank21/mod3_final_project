@@ -44,26 +44,26 @@ class Mealpal {
 
 }
 
-document.addEventListener("DOMContentLoaded", event => {
-  const contentBody = document.getElementById("content_body")
-  const mealpalButton = document.getElementById("mealpal_block");
-  mealpalButton.addEventListener("click", event => {
-    // const mealpalSection = document.getElementById("mealpal-container");
-    // mealpalSection.style.display = "block"
-    console.log("BITCH")
-    contentBody.innerHTML = "";
-    let mealpalContainer = document.createElement("div");
-    mealpalContainer.innerHTML = `<div id = "mealpal-container">
-              <h3>MealPal Referrals</h3>
-              <form id="add-mealpal-link" action="/mealpals" method="POST">
-                <label>Add Your MealPal Link</label>
-                <input type="text" name="name" id="mealpal-link" placeholder="Link">
-                <label>Expiration Date</label>
-                <input type="date" name="date_field" id="expiration-date" placeholder="Date">
-                <input type="submit" value="Submit">
-              </form>
-            </div>`
-    contentBody.appendChild(mealpalContainer);
-  })
-
-})
+// document.addEventListener("DOMContentLoaded", event => {
+//   const contentBody = document.getElementById("content_body")
+//   const mealpalButton = document.getElementById("mealpal_block");
+//   mealpalButton.addEventListener("click", event => {
+//     // const mealpalSection = document.getElementById("mealpal-container");
+//     // mealpalSection.style.display = "block"
+//     console.log("BITCH")
+//     contentBody.innerHTML = "";
+//     let mealpalContainer = document.createElement("div");
+//     mealpalContainer.innerHTML = `<div id = "mealpal-container">
+//               <h3>MealPal Referrals</h3>
+//               <form id="add-mealpal-link" action="/mealpals" method="POST">
+//                 <label>Add Your MealPal Link</label>
+//                 <input type="text" name="name" id="mealpal-link" placeholder="Link">
+//                 <label>Expiration Date</label>
+//                 <input type="date" name="date_field" id="expiration-date" placeholder="Date">
+//                 <input type="submit" value="Submit">
+//               </form>
+//             </div>`
+//     contentBody.appendChild(mealpalContainer);
+//   })
+//
+// })

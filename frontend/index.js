@@ -61,30 +61,89 @@ let loginButton = document.getElementById('login_button')
       newFood.displayFood()
     })
   }
+  //
+  // let newFoodForm = document.getElementById("newFoodForm")
+  // function newFood() {
+  //   newFoodForm.addEventListener('submit', event => {
+  //     event.preventDefault();
+  //     let food = document.getElementById('food-name').value
+  //     let foodCount = parseInt(document.getElementById('food-count').value)
+  //     let body = {type_of_food: food, in_fridge: true, count: foodCount, community_fridge_id: 1}
+  //     renderFood([body])
+  //     fetch(BASE_URL + "foods", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(body)
+  //     })
+  //
+  //     event.target.reset();
+  //
+  //   })
+  // }
+  // fetchJSON("foods").then(json => renderFood(json))
+  // newFood();
 
-  let newFoodForm = document.getElementById("newFoodForm")
-  function newFood() {
-    newFoodForm.addEventListener('submit', event => {
-      event.preventDefault();
-      let food = document.getElementById('food-name').value
-      let foodCount = parseInt(document.getElementById('food-count').value)
-      let body = {type_of_food: food, in_fridge: true, count: foodCount, community_fridge_id: 1}
-      renderFood([body])
-      fetch(BASE_URL + "foods", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body)
-      })
 
-      event.target.reset();
+  const contentBody = document.getElementById("content_body")
+  const foodButton = document.getElementById("commFridge_block");
+  foodButton.addEventListener("click", event => {
 
-    })
-  }
+    console.log("")
+    contentBody.innerHTML = "";
+    // const foodSection = document.getElementById("communityFridge");
+    // foodSection.style.display = "block"
+    let communityFridge = document.createElement("div");
+    communityFridge.innerHTML = `<div id="communityFridge">
+              <h3>Community Fridge</h3>
+              <div id="newFoodForm">
+                <label>ADD NEW FOOD TO FRIDGE</label>
+                <form id="add-food" action="/foods" method="POST">
+                  <label>Add Food to Community Fridge:</label>
+                  <input type="text" name="name" id="food-name" placeholder="Item">
+                  <input type="integer" name="amount" id="food-count" placeholder="Amount">
+                  <input type="submit" value="Submit">
+                </form>
+              </div>
+            </div>`
+    contentBody.appendChild(communityFridge);
 
-  fetchJSON("foods").then(json => renderFood(json))
-  newFood();
+
+
+
+      let newFoodForm = document.getElementById("newFoodForm")
+      function newFood() {
+        newFoodForm.addEventListener('submit', event => {
+          event.preventDefault();
+          let food = document.getElementById('food-name').value
+          let foodCount = parseInt(document.getElementById('food-count').value)
+          let body = {type_of_food: food, in_fridge: true, count: foodCount, community_fridge_id: 1}
+          renderFood([body])
+          fetch(BASE_URL + "foods", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
+          })
+
+          event.target.reset();
+
+        })
+      }
+
+
+      fetchJSON("foods").then(json => renderFood(json))
+      newFood();
+
+
+
+
+
+
+
+  })
 
 
   function renderMealpals(json) {
@@ -94,29 +153,68 @@ let loginButton = document.getElementById('login_button')
     })
   }
 
-  fetchJSON("mealpals").then(json => renderMealpals(json));
 
-  let mealpalForm = document.getElementById("add-mealpal-link")
-  function renderNewMealPal() {
-    mealpalForm.addEventListener('submit', event => {
-      event.preventDefault();
-      let mealpalLink = document.getElementById("mealpal-link").value
-      let expDate = document.getElementById("expiration-date").value
-      let body = {user_id: 1, referral_link: mealpalLink, count: 0, expiration_date: expDate}
-      renderMealpals([body])
-      fetch(BASE_URL + "mealpals", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body)
+  // const contentBody = document.getElementById("content_body")
+  const mealpalButton = document.getElementById("mealpal_block");
+  mealpalButton.addEventListener("click", event => {
+    // const mealpalSection = document.getElementById("mealpal-container");
+    // mealpalSection.style.display = "block"
+    contentBody.innerHTML = "";
+    let mealpalContainer = document.createElement("div");
+    mealpalContainer.innerHTML = `<div id = "mealpal-container">
+              <h3>MealPal Referrals</h3>
+              <form id="add-mealpal-link" action="/mealpals" method="POST">
+                <label>Add Your MealPal Link</label>
+                <input type="text" name="name" id="mealpal-link" placeholder="Link">
+                <label>Expiration Date</label>
+                <input type="date" name="date_field" id="expiration-date" placeholder="Date">
+                <input type="submit" value="Submit">
+              </form>
+            </div>`
+    contentBody.appendChild(mealpalContainer);
+
+
+    fetchJSON("mealpals").then(json => renderMealpals(json));
+
+    let mealpalForm = document.getElementById("add-mealpal-link")
+    function renderNewMealPal() {
+      mealpalForm.addEventListener('submit', event => {
+        event.preventDefault();
+        let mealpalLink = document.getElementById("mealpal-link").value
+        let expDate = document.getElementById("expiration-date").value
+        let body = {user_id: 1, referral_link: mealpalLink, count: 0, expiration_date: expDate}
+        renderMealpals([body])
+        fetch(BASE_URL + "mealpals", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body)
+        })
+        event.target.reset();
       })
-      event.target.reset();
-    })
 
-  }
+    }
 
-  renderNewMealPal();
+    renderNewMealPal();
+
+
+
+
+
+
+
+  })
+
+
+
+
+
+
+
+
+
+
 
   function renderJobs(json) {
     json.forEach(jsonJob => {
