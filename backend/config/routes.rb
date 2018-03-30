@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :miscs
   resources :hackathons
   resources :events
   resources :restaurants
