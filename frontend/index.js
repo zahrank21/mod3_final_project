@@ -432,6 +432,7 @@ networkButton.addEventListener("click", event => {
     miscForm.addEventListener('submit', event => {
       event.preventDefault();
       let newMiscThing = document.getElementById('misc-item').value;
+      console.log(newMiscThing)
       let newMiscCode = document.getElementById('misc-code').value;
       let body = {thing: newMiscThing, code: newMiscCode}
       renderMiscs([body])
