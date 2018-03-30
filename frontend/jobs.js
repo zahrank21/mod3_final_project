@@ -47,30 +47,3 @@ class Job {
 
   //endofclass
 }
-
-document.addEventListener("DOMContentLoaded", event => {
-  const contentBody = document.getElementById("content_body")
-  const jobButton = document.getElementById("job_block");
-  jobButton.addEventListener("click", event => {
-    // const mealpalSection = document.getElementById("mealpal-container");
-    // mealpalSection.style.display = "block"
-    contentBody.innerHTML = "";
-    let jobContainer = document.createElement("div");
-    jobContainer.innerHTML = `<div id="jobs-container">
-      <h3>Job Openings</h3>
-      <form id="add-job" action="/jobs" method="POST">
-        <label>Position</label>
-        <input type="text" name="name" id="job-title" placeholder="Title">
-        <label>Description</label>
-        <input type="text" name="name" id="job-description" placeholder="Description">
-        <label>Company</label>
-        <input type="text" name="name" id="job-company" placeholder="Company Name">
-        <label>Link</label>
-        <input type="text" name="name" id="job-link" placeholder="Job Link">
-        <input type="submit" value="Submit">
-      </form>
-    </div>`
-    contentBody.appendChild(jobContainer);
-  })
-
-})

@@ -49,11 +49,4 @@ class Hackathon{
 
 
 
-
-
-
-
-
-
-
 }

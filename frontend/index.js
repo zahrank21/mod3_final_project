@@ -89,8 +89,6 @@ let loginButton = document.getElementById('login_button')
   const contentBody = document.getElementById("content_body")
   const foodButton = document.getElementById("commFridge_block");
   foodButton.addEventListener("click", event => {
-
-    console.log("")
     contentBody.innerHTML = "";
     // const foodSection = document.getElementById("communityFridge");
     // foodSection.style.display = "block"
@@ -136,12 +134,6 @@ let loginButton = document.getElementById('login_button')
 
       fetchJSON("foods").then(json => renderFood(json))
       newFood();
-
-
-
-
-
-
 
   })
 
@@ -209,13 +201,6 @@ let loginButton = document.getElementById('login_button')
 
 
 
-
-
-
-
-
-
-
   function renderJobs(json) {
     json.forEach(jsonJob => {
       let newJob = new Job(jsonJob.id, jsonJob.title, jsonJob.description, jsonJob.company, jsonJob.link)
@@ -223,10 +208,32 @@ let loginButton = document.getElementById('login_button')
     })
   }
 
-  fetchJSON("jobs").then(json => renderJobs(json));
+  const jobButton = document.getElementById("job_block");
+  jobButton.addEventListener("click", event => {
+    // const mealpalSection = document.getElementById("mealpal-container");
+    // mealpalSection.style.display = "block"
+    contentBody.innerHTML = "";
+    let jobContainer = document.createElement("div");
+    jobContainer.innerHTML = `<div id="jobs-container">
+      <h3>Job Openings</h3>
+      <form id="add-job" action="/jobs" method="POST">
+        <label>Position</label>
+        <input type="text" name="name" id="job-title" placeholder="Title">
+        <label>Description</label>
+        <input type="text" name="name" id="job-description" placeholder="Description">
+        <label>Company</label>
+        <input type="text" name="name" id="job-company" placeholder="Company Name">
+        <label>Link</label>
+        <input type="text" name="name" id="job-link" placeholder="Job Link">
+        <input type="submit" value="Submit">
+      </form>
+    </div>`
+    contentBody.appendChild(jobContainer);
 
-  let jobForm = document.getElementById("add-job");
-  function renderNewJob() {
+    fetchJSON("jobs").then(json => renderJobs(json));
+
+    let jobForm = document.getElementById("add-job");
+    function renderNewJob() {
       jobForm.addEventListener("submit", event => {
         event.preventDefault();
         let newJobTitle = document.getElementById("job-title").value
@@ -244,9 +251,14 @@ let loginButton = document.getElementById('login_button')
         })
         event.target.reset();
       })
-  }
+    }
 
-  renderNewJob();
+    renderNewJob();
+
+
+  })
+
+
 
   function renderAlumnis(json) {
     json.forEach(jsonAlumni => {
@@ -302,33 +314,58 @@ function renderNetworkingEvents(json){
   })
 }
 
-fetchJSON('events').then(json => renderNetworkingEvents(json));
 
-let networkingEventForm = document.getElementById('add-networking-event')
-function renderNewNetworkingEvent(){
-  networkingEventForm.addEventListener('submit', event => {
-    event.preventDefault();
-    let newNetworkingEventName = document.getElementById('networking-event-name').value;
-    let newNetworkingEventLocation = document.getElementById('networking-event-location').value;
-    let newNetworkingEventDescription = document.getElementById('networking-event-description').value;
-    let newNetworkingEventDatetime = document.getElementById('networking-event-datetime').value;
-    let body = {name: newNetworkingEventName, description: newNetworkingEventDescription, datetime: newNetworkingEventDatetime, location: newNetworkingEventLocation}
-    renderNetworkingEvents([body]);
-    fetch(BASE_URL + "events", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body)
+const networkButton = document.getElementById("networking_block");
+networkButton.addEventListener("click", event => {
+  contentBody.innerHTML = "";
+  // const foodSection = document.getElementById("communityFridge");
+  // foodSection.style.display = "block"
+  let networkEvent = document.createElement("div");
+  networkEvent.innerHTML = `<div id="networking-event-container">
+    <h3>Networking Events</h3>
+    <form id="add-networking-event" action="/events" method="post">
+      <label>Add New Networking Event:</label>
+      <input type="text" name="name" id="networking-event-name" placeholder="Name">
+      <label>Location</label>
+      <input type="text" name="name" id="networking-event-location" placeholder="Location">
+      <label>Description</label>
+      <input type="text" name="name" id="networking-event-description" placeholder="Description">
+      <label>Date and Time: </label>
+      <input type="datetime-local" name="datetime" id="networking-event-datetime" placeholder="Date and Time">
+      <input type="submit" value="Submit">
+    </form>
+  </div>`
+  contentBody.appendChild(networkEvent);
+
+
+
+  let networkingEventForm = document.getElementById('add-networking-event')
+  function renderNewNetworkingEvent(){
+    networkingEventForm.addEventListener('submit', event => {
+      event.preventDefault();
+      let newNetworkingEventName = document.getElementById('networking-event-name').value;
+      let newNetworkingEventLocation = document.getElementById('networking-event-location').value;
+      let newNetworkingEventDescription = document.getElementById('networking-event-description').value;
+      let newNetworkingEventDatetime = document.getElementById('networking-event-datetime').value;
+      let body = {name: newNetworkingEventName, description: newNetworkingEventDescription, datetime: newNetworkingEventDatetime, location: newNetworkingEventLocation}
+      renderNetworkingEvents([body]);
+      fetch(BASE_URL + "events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
+      event.target.reset();
+
     })
-    event.target.reset();
+  }
 
-  })
-}
-
-renderNewNetworkingEvent();
+  fetchJSON('events').then(json => renderNetworkingEvents(json));
+  renderNewNetworkingEvent();
 
 
+})
 
 
 })
