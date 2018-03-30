@@ -191,11 +191,6 @@ let loginButton = document.getElementById('login_button')
     renderNewMealPal();
 
 
-
-
-
-
-
   })
 
 
@@ -240,7 +235,7 @@ let loginButton = document.getElementById('login_button')
         let newJobDescription = document.getElementById("job-description").value
         let newJobCompany = document.getElementById("job-company").value
         let newJobLink = document.getElementById("job-link").value
-        let body = {user_id: newJobTitle, description: newJobDescription, company: newJobCompany, link: newJobLink}
+        let body = {title: newJobTitle, description: newJobDescription, company: newJobCompany, link: newJobLink}
         renderJobs([body]);
         fetch(BASE_URL + "jobs", {
           method: "POST",
@@ -403,14 +398,6 @@ networkButton.addEventListener("click", event => {
     renderMap()
 
   })
-
-
-
-
-
-
-
-
 
 
 })
