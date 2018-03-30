@@ -1,5 +1,6 @@
 class Misc{
   constructor(id, thing, code){
+    this.id = id
     this.thing = thing
     this.code = code
   }
@@ -35,4 +36,5 @@ class Misc{
     divMisc.appendChild(newItem)
 
   }
+  
 }
