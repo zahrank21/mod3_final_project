@@ -28,27 +28,13 @@
   padding-left: 255px;
 }
 
-/*
-
-
-#career{
-  display: none;
+#subwayLines {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  height: 100%;
 }
 
-#coding {
-  display: none;
+#lirrModal {
+  width: 230px;
+  height: 430px;
 }
-
-#alumni_whitepages {
-  display: none;
-}
-
-#directions {
-  display: none;
-}
-
-#mtaInfo {
-  display: none;
-}
-
-*/
