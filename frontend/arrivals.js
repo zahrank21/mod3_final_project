@@ -146,6 +146,16 @@ document.addEventListener("DOMContentLoaded", event => {
       subwayLines.append(show);
       $('.ui.modal').modal('show');
     })
+    lineJButton.addEventListener("click", event => {
+      let show = document.createElement("div")
+      show.innerHTML = `<div class="ui small modal">
+              <iframe width="483.83" height="452" frameborder="0" style="border:0"
+              src="http://subwaytime.mta.info/index.html#/app/subwaytime/J/M23/">
+              </iframe>
+            </div>`
+      subwayLines.append(show);
+      $('.ui.modal').modal('show');
+    })
     lineLIRRButton.addEventListener("click", event => {
       let show = document.createElement("div")
       show.innerHTML = `<div class="ui small modal" id="lirrModal">

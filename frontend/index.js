@@ -453,4 +453,31 @@ networkButton.addEventListener("click", event => {
   })
 
 
+
+  function solveBAC(form) {
+    var ounces = eval(form.ounces.value);
+    var percent = eval(form.percent.value);
+    var weight = eval(form.weight.value);
+    var hours = eval(form.hours.value);
+
+    var result = (ounces * percent * 0.075 / weight) - (hours * 0.015);
+    if (result < 0) {
+      message = "There is a negligible amount of alcohol in your system.  You are not legally intoxicated.";
+      result = "-- neglible amount --";
+    }
+    else {
+      if (result == "NaN")
+      mesage = "Please try again.";
+      if (result > 0.08)
+      message = "In MOST and possibly ALL states you would be considered intoxicated and arrested for DUI.";
+      if (result < 0.08)
+      message = "You are not legally intoxicated";
+    }
+    form.message.value = message;
+    form.bacamount.value = result + " %";
+  }
+
+
+
+
 })

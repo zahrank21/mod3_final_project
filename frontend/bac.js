@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", event => {
   const contentBody = document.getElementById("content_body");
   let bacButton = document.getElementById("bac_block")
   bacButton.addEventListener("click", event => {
-    console.log("hellooo")
     contentBody.innerHTML = "";
     let bacDiv = document.createElement("div")
     bacDiv.innerHTML = `<center>
