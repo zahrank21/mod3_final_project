@@ -15,7 +15,7 @@ class Alumni {
     newAlumniUsername.innerText = "Alumni's Username: " + this.username;
     newAlumniCohort.innerText = "Alumni's Cohort: " + this.cohort
     newAlumni.append(newAlumniName, newAlumniUsername, newAlumniCohort)
-  
+
 
     divAlumni.appendChild(newAlumni)
 

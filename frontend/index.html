@@ -102,9 +102,9 @@
 
     <div id="side_navbar" class="ui large secondary fixed left vertical pointing massive menu">
 
-      <a class="item">
+      <!-- <a class="item">
         Home
-      </a>
+      </a> -->
 
       <div class="ui dropdown item">
         Food Section
@@ -134,6 +134,23 @@
       </div>
 
       <div class="ui dropdown item">
+        Coding
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" id="codingEvent_block">Coding Events</a>
+          <a class="item" id="codeHelp_block">Programing SOS</a>
+        </div>
+      </div>
+
+      <div class="ui dropdown item">
+        Alumni
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" id="alumniWhitepages_block">Alumni Whitepages</a>
+        </div>
+      </div>
+
+      <div class="ui dropdown item">
         Misc
         <i class="dropdown icon"></i>
         <div class="menu">
@@ -155,33 +172,8 @@
     </div>
 
     <div id="content_body">
-
-      <div id="coding">
-        <h2>Coding</h2>
-        <div id="hackathon-container">
-          <h3>Hackathons</h3>
-          <form id="add-hackathon" action="/hackathons" method="post">
-            <label>Add New Hackathon Event:</label>
-            <input type="text" name="name" id="hackathon-name" placeholder="Name">
-            <label>Location</label>
-            <input type="text" name="location" id="hackathon-location" placeholder="Location">
-            <label>Language</label>
-            <input type="text" name="language" id="hackathon-language" placeholder="Language">
-            <label>Date and Time</label>
-            <input type="datetime-local" name="datetime" id="hackathon-datetime" placeholder="Date and Time">
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-
-      </div>
-
-      <div id="alumni_whitepages">
-        <label><h1>Contact an Alumni!</h1></label>
-        <div id="alumnis">
-        </div>
-      </div>
-
-
     </div>
+
+
   </body>
 </html>

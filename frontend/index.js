@@ -253,6 +253,21 @@ let loginButton = document.getElementById('login_button')
 
   })
 
+  const alumniWhitpagesButton = document.getElementById("alumniWhitepages_block")
+  alumniWhitpagesButton.addEventListener("click", event => {
+    contentBody.innerHTML = "";
+    let alumniWhitepage = document.createElement('div')
+    alumniWhitepage.innerHTML = `    <div id="alumni_whitepages">
+          <label><h1>Contact an Alumni!</h1></label>
+          <div id="alumnis">
+          </div>
+        </div>`
+    contentBody.appendChild(alumniWhitepage)
+
+
+
+
+
 
 
   function renderAlumnis(json) {
@@ -268,6 +283,14 @@ let loginButton = document.getElementById('login_button')
 
   fetchJSON("users").then(json => renderAlumnis(json));
 
+
+
+})
+
+
+
+
+
 function renderHackathons(json){
   json.forEach(jsonHackathon =>{
     let newHackathon = new Hackathon(jsonHackathon.id, jsonHackathon.name, jsonHackathon.language, jsonHackathon.datetime, jsonHackathon.location);
@@ -275,31 +298,56 @@ function renderHackathons(json){
   })
 }
 
-fetchJSON("hackathons").then(json => renderHackathons(json));
+const codingEventButton = document.getElementById("codingEvent_block")
+codingEventButton.addEventListener("click", event =>{
+  contentBody.innerHTML = "";
+  let eventDiv = document.createElement("div")
+  eventDiv.innerHTML = `      <div id="coding">
+          <h2>Coding</h2>
+          <div id="hackathon-container">
+            <h3>Hackathons</h3>
+            <form id="add-hackathon" action="/hackathons" method="post">
+              <label>Add New Hackathon Event:</label>
+              <input type="text" name="name" id="hackathon-name" placeholder="Name">
+              <label>Location</label>
+              <input type="text" name="location" id="hackathon-location" placeholder="Location">
+              <label>Language</label>
+              <input type="text" name="language" id="hackathon-language" placeholder="Language">
+              <label>Date and Time</label>
+              <input type="datetime-local" name="datetime" id="hackathon-datetime" placeholder="Date and Time">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
 
-let hackathonForm = document.getElementById('add-hackathon');
-function renderNewHackathon(){
-  hackathonForm.addEventListener("submit", event => {
-    event.preventDefault();
-    let newHackathonName = document.getElementById('hackathon-name').value;
-    let newHackathonLocation = document.getElementById('hackathon-location').value;
-    let newHackathonLanguage = document.getElementById('hackathon-language').value;
-    let newHackathonDatetime = document.getElementById('hackathon-datetime').value;
-    let body = {name: newHackathonName, language: newHackathonLanguage, datetime: newHackathonDatetime, location: newHackathonLocation}
-    renderHackathons([body]);
-    fetch(BASE_URL + "hackathons", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body)
+        </div>`
+  contentBody.appendChild(eventDiv)
+
+  fetchJSON("hackathons").then(json => renderHackathons(json));
+
+  let hackathonForm = document.getElementById('add-hackathon');
+  function renderNewHackathon(){
+    hackathonForm.addEventListener("submit", event => {
+      event.preventDefault();
+      let newHackathonName = document.getElementById('hackathon-name').value;
+      let newHackathonLocation = document.getElementById('hackathon-location').value;
+      let newHackathonLanguage = document.getElementById('hackathon-language').value;
+      let newHackathonDatetime = document.getElementById('hackathon-datetime').value;
+      let body = {name: newHackathonName, language: newHackathonLanguage, datetime: newHackathonDatetime, location: newHackathonLocation}
+      renderHackathons([body]);
+      fetch(BASE_URL + "hackathons", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
+      event.target.reset();
     })
-    event.target.reset();
-  })
-}
+  }
 
 
-renderNewHackathon();
+  renderNewHackathon();
+})
 
 
 function renderNetworkingEvents(json){
@@ -476,6 +524,9 @@ networkButton.addEventListener("click", event => {
     form.message.value = message;
     form.bacamount.value = result + " %";
   }
+
+
+
 
 
 

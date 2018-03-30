@@ -42,4 +42,7 @@
 #welcome_text {
   text-align: center;
   padding-top: 40%;
+  color: white;
+  text-shadow: 2px 2px blue;
+
 }
