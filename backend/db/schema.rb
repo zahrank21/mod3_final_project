@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329133603) do
+ActiveRecord::Schema.define(version: 20180330132744) do
 
   create_table "community_fridges", force: :cascade do |t|
     t.string "name"
@@ -59,6 +59,13 @@ ActiveRecord::Schema.define(version: 20180329133603) do
     t.string "referral_link"
     t.integer "count"
     t.date "expiration_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "miscs", force: :cascade do |t|
+    t.string "thing"
+    t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

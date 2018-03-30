@@ -191,11 +191,6 @@ let loginButton = document.getElementById('login_button')
     renderNewMealPal();
 
 
-
-
-
-
-
   })
 
 
@@ -240,7 +235,7 @@ let loginButton = document.getElementById('login_button')
         let newJobDescription = document.getElementById("job-description").value
         let newJobCompany = document.getElementById("job-company").value
         let newJobLink = document.getElementById("job-link").value
-        let body = {user_id: newJobTitle, description: newJobDescription, company: newJobCompany, link: newJobLink}
+        let body = {title: newJobTitle, description: newJobDescription, company: newJobCompany, link: newJobLink}
         renderJobs([body]);
         fetch(BASE_URL + "jobs", {
           method: "POST",
@@ -405,12 +400,57 @@ networkButton.addEventListener("click", event => {
   })
 
 
+  function renderMiscs(json){
+    json.forEach(jsonMisc => {
+      let newMisc = new Misc(jsonMisc.id, jsonMisc.thing, jsonMisc.code)
+      newMisc.displayMisc();
+    })
+  }
 
 
+  let miscButton = document.getElementById('misc-block')
+  miscButton.addEventListener('click', event => {
+    contentBody.innerHTML = '';
 
+    let miscContainer = document.createElement('div')
+    miscContainer.innerHTML =`
+    <div id = "misc-container">
+      <h3>Helpful Items</h3>
+      <form id="add-misc-item" action="/miscs" method="POST">
+        <input type="text" name="name" id="misc-item" placeholder="Item">
+        <input type="text" name="name" id="misc-code" placeholder="Code or Link">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    `
+  contentBody.appendChild(miscContainer)
 
+  fetchJSON('miscs').then(json => renderMiscs(json));
 
+  let miscForm = document.getElementById('add-misc-item')
+  function renderNewMisc(){
+    miscForm.addEventListener('submit', event => {
+      event.preventDefault();
+      let newMiscThing = document.getElementById('misc-item').value;
+      let newMiscCode = document.getElementById('misc-code').value;
+      let body = {thing: newMiscThing, code: newMiscCode}
+      renderMiscs([body])
 
+      fetch(BASE_URL + "miscs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
+      event.target.reset();
+    })
+
+  }
+
+  renderNewMisc();
+
+  })
 
 
 })
