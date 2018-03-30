@@ -38,3 +38,8 @@
   width: 230px;
   height: 430px;
 }
+
+#welcome_text {
+  text-align: center;
+  padding-top: 40%;
+}
