@@ -9,6 +9,7 @@ class Food {
 
     displayFood() {
       let newItems = document.createElement("div")
+      newItems.setAttribute("class", "ui floating message")
       let newFoodItem = document.createElement("p")
       // let communityFridge = document.getElementById("communityFridge")
       let contentBody = document.getElementById("content_body")

@@ -153,7 +153,7 @@ let loginButton = document.getElementById('login_button')
     // mealpalSection.style.display = "block"
     contentBody.innerHTML = "";
     let mealpalContainer = document.createElement("div");
-    mealpalContainer.innerHTML = `<div id = "mealpal-container">
+    mealpalContainer.innerHTML = `<div id = "mealpal-container" class="ui floating message">
               <h3>MealPal Referrals</h3>
               <form id="add-mealpal-link" action="/mealpals" method="POST">
                 <label>Add Your MealPal Link</label>

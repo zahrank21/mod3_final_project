@@ -9,12 +9,13 @@ class Mealpal {
 
   displayMealpal() {
     let newItems = document.createElement("div")
+    newItems.setAttribute("class", "ui floating message")
     let newMealpalLink = document.createElement("p")
     let expDate = document.createElement("p")
     let linkCount = document.createElement("p")
     let divMealpal = document.getElementById("mealpal-container")
 
-    newMealpalLink.innerText = "Link: " + this.referralLink
+    newMealpalLink.innerHTML = `Link: <a href="http://${this.referralLink}"> ${this.referralLink}</a>`
     expDate.innerText = "Expiration Date: " + this.expDate
     linkCount.innerText = "Used: " + this.count + " time(s)"
 
