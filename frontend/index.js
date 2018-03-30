@@ -341,31 +341,77 @@ networkButton.addEventListener("click", event => {
 
   let networkingEventForm = document.getElementById('add-networking-event')
   function renderNewNetworkingEvent(){
-    networkingEventForm.addEventListener('submit', event => {
-      event.preventDefault();
-      let newNetworkingEventName = document.getElementById('networking-event-name').value;
-      let newNetworkingEventLocation = document.getElementById('networking-event-location').value;
-      let newNetworkingEventDescription = document.getElementById('networking-event-description').value;
-      let newNetworkingEventDatetime = document.getElementById('networking-event-datetime').value;
-      let body = {name: newNetworkingEventName, description: newNetworkingEventDescription, datetime: newNetworkingEventDatetime, location: newNetworkingEventLocation}
-      renderNetworkingEvents([body]);
-      fetch(BASE_URL + "events", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body)
+      networkingEventForm.addEventListener('submit', event => {
+        event.preventDefault();
+        let newNetworkingEventName = document.getElementById('networking-event-name').value;
+        let newNetworkingEventLocation = document.getElementById('networking-event-location').value;
+        let newNetworkingEventDescription = document.getElementById('networking-event-description').value;
+        let newNetworkingEventDatetime = document.getElementById('networking-event-datetime').value;
+        let body = {name: newNetworkingEventName, description: newNetworkingEventDescription, datetime: newNetworkingEventDatetime, location: newNetworkingEventLocation}
+        renderNetworkingEvents([body]);
+        fetch(BASE_URL + "events", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(body)
+        })
+        event.target.reset();
+
       })
-      event.target.reset();
+    }
 
-    })
-  }
-
-  fetchJSON('events').then(json => renderNetworkingEvents(json));
-  renderNewNetworkingEvent();
+    fetchJSON('events').then(json => renderNetworkingEvents(json));
+    renderNewNetworkingEvent();
 
 
-})
+  })
+
+  const transitButton = document.getElementById("fromFlatiron_block");
+  transitButton.addEventListener("click", event =>{
+    contentBody.innerHTML = "";
+    let transitMap = document.createElement("div");
+    transitMap.innerHTML = `<div id="directions">
+            <h3>See directions to your destination from Flatiron@</h3>
+            <div id="gmap">
+              <form id="directions_form">
+                <label>Where would you like to go?</label>
+                <input type="text" name="name" id="destinations" placeholder="Destination">
+                <input type="submit" value="Submit">
+              </form>
+              <div id="mapDiv">
+              </div>
+            </div>
+          </div>`
+    contentBody.appendChild(transitMap);
+
+    let transitForm = document.getElementById("directions_form")
+    function renderMap() {
+      transitForm.addEventListener("submit", event => {
+        event.preventDefault();
+        let destination = document.getElementById("destinations");
+        let destConverted = destination.value.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ").replace(/[ ]/g,"+")
+        let mapDiv = document.getElementById('mapDiv')
+        mapDiv.innerHTML = `<iframe width="450" height="450" frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyA3w3-NnXWWqhgJS5ItzMF4xU7jF8wiD6o&origin=11+Broadway,+New+York,+NY+10004&destination=${destConverted}&mode=transit">
+        </iframe>`
+        divGmap.appendChild(mapDiv);
+
+      })
+    }
+
+    renderMap()
+
+  })
+
+
+
+
+
+
+
+
+
 
 
 })
