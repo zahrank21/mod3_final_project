@@ -4,6 +4,11 @@ Application for students of Flatiron School to assist with their tenure at schoo
 # Motivation
 I wanted to build an application for Flatiron Students that will help them with their daily lives such as commuting, fridge inventory etc. 
 
+# Screenshots
+
+![1](https://i.imgur.com/7zfnhQl.jpg)
+
+
 # Built with:
 
 Javascript
