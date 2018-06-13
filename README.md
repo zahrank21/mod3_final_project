@@ -1,8 +1,8 @@
 # Flatiron Survival App
-Application for students of Flatiron School to assist with their tenure at school
+Application for students of Flatiron School to assist with their tenure at school.
 
 # Motivation
-I wanted to build an application for Flatiron Students that will help them with their daily lives such as commuting, fridge inventory etc. 
+In my tenure at Flatiron School, I saw a need for a companion application that helps with commutes, referrals for mealplans around the area, and various other ideas that I thought would be helpful. With that in mind, I went out and built the application as our first javascript project. 
 
 # Screenshots
 
@@ -11,20 +11,36 @@ I wanted to build an application for Flatiron Students that will help them with 
 
 # Built with:
 
-Javascript
+- [Electron](https://electron.atom.io)
 
-Rails
+- [Javascript](https://www.javascript.com/)
+
+- [Ruby on Rails](https://rubyonrails.org/)
+
+- [Semantic UI](https://semantic-ui.com/)
 
 # Installation
 
-## Backend
+## For Developers 
+Clone the source locally:
 
-rails s 
+```sh
+$ git clone https://github.com/zahrank21/mod3_final_project/
+$ cd mod3_final_project
+$ cd backend
+```
+Start Rails Session:
 
-## Frontend
+```sh
+$ rails s
+```
+Change to Frontend:
 
-open index.html
-
+```sh
+$ cd ..
+$ cd frontend
+$ index.html . 
+```
 # Credits
 
 To my instructors at Flatiron! Thank you for all your help.
